@@ -87,3 +87,10 @@ C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Microsoft.A
 C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Microsoft.AI.Web.xml
 C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\obj\Debug\ASRAS.csprojResolveAssemblyReference.cache
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\MongoDB.Bson.dll
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\MongoDB.Driver.Core.dll
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\MongoDB.Driver.dll
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\MongoDB.Bson.xml
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\MongoDB.Driver.xml
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\MongoDB.Driver.Core.xml
