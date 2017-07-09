@@ -33,7 +33,6 @@ namespace ASRAS.Controllers
 
 
             //creating a user record
-            /*
             var u = new User()
             {
                 Name = "Yash",
@@ -67,12 +66,10 @@ namespace ASRAS.Controllers
                     }
                 }
             };
-            */
-            //Working COde for insertion
-            //-----------
-            //User a = _repository.InsertPost(u);
-            //ViewBag.Result = a.ToJson().ToString();
-            //-----------
+
+            //Working Code for insertion
+            User a = _repository.InsertPost(u);
+            ViewBag.Result = a.ToJson().ToString();
 
             //working code
             //---------------------
