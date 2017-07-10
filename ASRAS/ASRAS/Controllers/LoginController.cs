@@ -30,8 +30,6 @@ namespace ASRAS.Controllers
 
         public ActionResult Clicked(string username, string password)
         {
-
-
             //creating a user record
             var u = new User()
             {
@@ -119,6 +117,7 @@ namespace ASRAS.Controllers
             string Entered_Pass = password;
             User curr_user = null;
             List<User> Hits = _repository.Filter("{UserName: '" + Entered_Uname + "', Pass: '" + Entered_Pass + "'}");
+
             if (Hits == null)
                 ViewBag.Result = "Error!!";
             else
@@ -134,16 +133,7 @@ namespace ASRAS.Controllers
                     }
                 }
             }
-            /*
-            if (username.Equals("robby") && password.Equals("singh"))
-            {
-               // ViewBag.Result = "Right";
 
-            }
-            else
-            {
-                //ViewBag.Result = "Wrong";
-            }*/
             return View("Login");
         }
     }
