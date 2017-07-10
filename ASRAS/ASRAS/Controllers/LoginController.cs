@@ -120,23 +120,37 @@ namespace ASRAS.Controllers
             //-------------------
             string Entered_Uname = username;
             string Entered_Pass = password;
+            if (Entered_Uname == null || Entered_Pass == null)
+                //return JavaScript(alert("please enter username and password"));
+                return Content("<script language = 'javascript' type = 'text/javascript'>alert('please enter username and password'); window.location.href = 'login'</script>");
             User curr_user = null;
-            List<User> Hits = _repository.Filter("{UserName: '" + Entered_Uname + "', Pass: '" + Entered_Pass + "'}");
-            if (Hits == null)
-                ViewBag.Result = "Error!!";
-            else
+            try
             {
-                foreach (User s in Hits)
+                List<User> Hits = _repository.Filter("{UserName: '" + Entered_Uname + "', Pass: '" + Entered_Pass + "'}");
+                if (Hits == null)
+                    //ViewBag.Result = "Error!!";
+                    return Content("<script language = 'javascript' type = 'text/javascript'>alert('ERROR!!'); window.location.href = 'login'</script>");
+                else
                 {
-                    if (s.ToJson().ToString() == null)
-                        ViewBag.Result = "Invalid Login";
-                    else
+                    foreach (User s in Hits)
                     {
-                        ViewBag.Result = "Welcome " + s.Name.ToString();
-                        curr_user = s;
+                        if (s.ToJson().ToString() == null)
+                            //ViewBag.Result = "Invalid Login";
+                            return Content("<script language = 'javascript' type = 'text/javascript'>alert('ERROR!!'); window.location.href = 'login'</script>");
+                        else
+                        {
+                            ViewBag.Result = "Welcome " + s.Name.ToString();
+                            curr_user = s;
+                        }
                     }
                 }
             }
+            catch(Exception e)
+            {
+                string error = e.ToString();
+                return Content("<script language = 'javascript' type = 'text/javascript'>alert('" + e + "'); window.location.href = 'login'</script>");
+            }
+            
             /*
             if (username.Equals("robby") && password.Equals("singh"))
             {
