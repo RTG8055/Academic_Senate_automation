@@ -37,7 +37,7 @@ namespace ASRAS
 
         public User()
         {
-            this.Proposals = new List<Proposals>();
+            this.Proposals = new List<Proposal>();
         }
 
         public ObjectId Id { get; set; }
@@ -46,7 +46,7 @@ namespace ASRAS
         public string Pass { get; set; }
         public string Designation { get; set; }
 
-        public List<Proposals> Proposals { get; set; }
+        public List<Proposal> Proposals { get; set; }
 
 /*        ObjectId id = new ObjectId();
         MongoClient client = null;
@@ -56,7 +56,7 @@ namespace ASRAS
 
 
     }
-    public class Proposals
+    public class Proposal
     {
         public string Index { get; set; }
         public string Title { get; set; }
