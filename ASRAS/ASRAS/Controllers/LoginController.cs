@@ -52,6 +52,8 @@ namespace ASRAS.Controllers
                         Semester= null,
                         Sub_type= null,
                         Sub_code= null,
+                        Others_CC_text = null,
+                        Others_CC_file=null,
                         Full_syll= null,
                         Abstract= null,
                         Objectives= null,
@@ -59,11 +61,22 @@ namespace ASRAS.Controllers
                         References= null,
                         Incl_sem= null,
                         Incl_sub_type= null,
+                        Others_CR_text=null,
+                        Others_CR_file=null,
                         Present_split= null,
                         Proposed_split= null,
+                        Present_nomenclature = null,
+                        New_nomenclature = null,
+                        With_effect_from=null,
+                        Modification_requested =null,
+                        Present_eligibility = null,
+                        Proposed_eligibility = null,
+                        Others_CS_text = null,
+                        Others_CS_file = null,
                         Proposed_cname= null,
                         Adm_capacity= null,
-                        Proposed_curriculum= null
+                        Proposed_curriculum= null,
+                        Proposed_distribution = null
                     }
                 }
             };
