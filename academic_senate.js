@@ -11,16 +11,8 @@ if (!fs.existsSync(targetPath))
     require("mkdirp").sync(targetPath);
 
 let exportCollections = [
-    {
-        collection: "Users", query: {}, projection: {}, sort: {}, skip: 0, limit: 0, filename: "web project academic senate", exportType: "bson", fields: [
-            "_id",
-            "Designation",
-            "Name",
-            "Pass",
-            "Proposals",
-            "UserName"
-        ]
-    }
+    { collection: "All_institutes", query: {}, projection: {}, sort: {}, skip: 0, limit: 0, exportType: "bson", fields: [] },
+    { collection: "Users", query: {}, projection: {}, sort: {}, skip: 0, limit: 0, exportType: "bson", fields: [] }
 ];
 let totalDocs = 0;
 let collectionResult = {};//collectionResult:{[name:string]:number}

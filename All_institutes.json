@@ -1,0 +1,151 @@
+{
+	"_id" : ObjectId("596520971599942ceccb652a"),
+	"Deptartments" : [
+		{
+			"Dname" : "Information and Communication Technology",
+			"Courses" : [
+				{
+					"Cname" : "Information Technology",
+					"Semesters" : [
+						{
+							"S_id" : "3",
+							"Core_subs" : [
+								{
+									"Sub_name" : "OOP",
+									"Sub_code" : "ict2201",
+									"Curr_link" : "xyz"
+								}
+							],
+							"PE_subs" : [
+								{
+									"Sub_name" : null,
+									"Sub_code" : null,
+									"Curr_link" : null
+								}
+							],
+							"OE_subs" : [
+								{
+									"Sub_name" : null,
+									"Sub_code" : null,
+									"Curr_link" : null
+								}
+							]
+						},
+						{
+							"S_id" : "4",
+							"Core_subs" : [
+								{
+									"Sub_name" : "PDC",
+									"Sub_code" : "ict2201",
+									"Curr_link" : "xyz"
+								}
+							],
+							"PE_subs" : [
+								{
+									"Sub_name" : null,
+									"Sub_code" : null,
+									"Curr_link" : null
+								}
+							],
+							"OE_subs" : [
+								{
+									"Sub_name" : "DAA",
+									"Sub_code" : "ict2101",
+									"Curr_link" : "xyz"
+								}
+							]
+						},
+						{
+							"S_id" : "5",
+							"Core_subs" : [
+								{
+									"Sub_name" : "COMP",
+									"Sub_code" : "ict2201",
+									"Curr_link" : "xyz"
+								}
+							],
+							"PE_subs" : [
+								{
+									"Sub_name" : "AI",
+									"Sub_code" : "ict2301",
+									"Curr_link" : "xyz"
+								}
+							],
+							"OE_subs" : [
+								{
+									"Sub_name" : null,
+									"Sub_code" : null,
+									"Curr_link" : null
+								}
+							]
+						}
+					]
+				},
+				{
+					"Cname" : "Computer and Communication",
+					"Semesters" : [
+						{
+							"S_id" : "1",
+							"Core_subs" : [
+								{
+									"Sub_name" : "OOP",
+									"Sub_code" : "ict2201",
+									"Curr_link" : "xyz"
+								}
+							],
+							"PE_subs" : [
+								{
+									"Sub_name" : "AI",
+									"Sub_code" : "ict2301",
+									"Curr_link" : "xyz"
+								}
+							],
+							"OE_subs" : [
+								{
+									"Sub_name" : "DAA",
+									"Sub_code" : "ict2101",
+									"Curr_link" : "xyz"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Dname" : "Mechanical",
+			"Courses" : [
+				{
+					"Cname" : "Mechanical",
+					"Semesters" : [
+						{
+							"S_id" : "3",
+							"Core_subs" : [
+								{
+									"Sub_name" : null,
+									"Sub_code" : null,
+									"Curr_link" : null
+								}
+							],
+							"PE_subs" : [
+								{
+									"Sub_name" : null,
+									"Sub_code" : null,
+									"Curr_link" : null
+								}
+							],
+							"OE_subs" : [
+								{
+									"Sub_name" : null,
+									"Sub_code" : null,
+									"Curr_link" : null
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"Name" : "Manipal Institute of Technology"
+},
