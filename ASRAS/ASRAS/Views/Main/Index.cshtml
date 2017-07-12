@@ -1,5 +1,7 @@
 ﻿@{
     ViewBag.Title = "View";
+    var Uname = (TempData["UserName"]).ToString();
+
 }
 
 <row>
@@ -8,7 +10,10 @@
         <li role="presentation" class="active"><a href="#create" data-toggle="tab">Create Proposal</a></li>
         <li role="presentation"><a href="#view" data-toggle="tab">View Proposals</a></li>
     </ul>
-
+    <h2> Welcome @Uname</h2> 
+    
+   
+    
     <div class="tab-content">
 
         <div id="create" class="tab-pane fade in active" style="align-content:center;">

@@ -153,7 +153,10 @@ namespace ASRAS.Controllers
                         else
                         {
                             ViewBag.Result = "Welcome " + s.Name.ToString();
-                            curr_user = s;
+                            string UserName = s.UserName.ToString();
+                            TempData["UserName"] = s.UserName;
+                            return this.RedirectToAction("Index", "Main");
+                            
                         }
                     }
                 }
