@@ -1,8 +1,29 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "View";
 }
 
 <row>
-    <button class="btn btn-alert">Click</button>
+
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#create" data-toggle="tab">Create Proposal</a></li>
+        <li role="presentation"><a href="#view" data-toggle="tab">View Proposals</a></li>
+    </ul>
+
+    <div class="tab-content">
+
+        <div id="create" class="tab-pane fade in active" style="align-content:center;">
+            <input id="changeincurriculum" type="button" value="Change in Curriculum" />
+            <input id="changeincoursestructure" type="button" value="Change in Course Structure" />
+            <input id="changeinregulations" type="button" value="Change in Regulations" />
+        </div>
+
+        <div id="view" class="tab-pane fade">
+            <ul class="list-group">
+                <li class="list-group-item">Proposal 1</li>
+                <li class="list-group-item">Proposal 2</li>
+                <li class="list-group-item">Proposal 3</li>
+            </ul>
+        </div>
+
+    </div>
 </row>
