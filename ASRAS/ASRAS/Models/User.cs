@@ -6,35 +6,6 @@ namespace ASRAS
     public class User
 
     {
-        /*[ScaffoldColumn(false)]
-        [BsonId]
-        public ObjectId PostId { get; set; }
-        /*
-        [ScaffoldColumn(false)]
-        public DateTime Date { get; set; }
-
-        [Required]
-        public string Title { get; set; }
-
-        [ScaffoldColumn(false)]
-        public string Url { get; set; }
-
-        [Required]
-        public string Summary { get; set; }
-
-        [UIHint("WYSIWYG")]
-        [AllowHtml]
-        public string Details { get; set; }
-
-        [ScaffoldColumn(false)]
-        public string Author { get; set; }
-
-        [ScaffoldColumn(false)]
-        public int TotalComments { get; set; }
-
-        [ScaffoldColumn(false)]
-        public IList<Command> Comments { get; set; }*/
-
         public User()
         {
             this.Proposals = new List<Proposal>();
@@ -47,13 +18,6 @@ namespace ASRAS
         public string Designation { get; set; }
 
         public List<Proposal> Proposals { get; set; }
-
-/*        ObjectId id = new ObjectId();
-        MongoClient client = null;
-        MongoServer server = null;
-        MongoDatabaseBase database = null;
-        MongoCollection UserDetailscollection = null;*/
-
 
     }
     public class Proposal
