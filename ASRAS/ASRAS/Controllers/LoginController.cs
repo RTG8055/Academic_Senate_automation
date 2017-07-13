@@ -163,7 +163,7 @@ namespace ASRAS.Controllers
                 string error = e.ToString();
                 return Content("<script language = 'javascript' type = 'text/javascript'>alert('" + e + "'); window.location.href = 'login'</script>");
             }
-            
+
             /*
             if (username.Equals("robby") && password.Equals("singh"))
             {
@@ -174,7 +174,7 @@ namespace ASRAS.Controllers
             {
                 //ViewBag.Result = "Wrong";
             }*/
-            return View("Login");
+            return RedirectToAction("Index", "Main");
         }
     }
 }

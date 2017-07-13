@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Page1";
+}
+
+<h2>Modify Syllabus - Page 1</h2>
+
+@using (Html.BeginForm())
+{
+    <asp:Label>Institute</asp:Label>
+    List<SelectListItem> listInstitutes = new List<SelectListItem>();
+    listInstitutes.Add(new SelectListItem { Text = "MIT",Value = "MIT"});
+    listInstitutes.Add(new SelectListItem { Text = "KMC", Value = "KMC" });
+    listInstitutes.Add(new SelectListItem { Text = "SOC", Value = "SOC" });
+    listInstitutes.Add(new SelectListItem { Text = "DOC", Value = "DOC" });
+    @Html.DropDownList("Institutes", new SelectList(listInstitutes, "Value", "Text"))
+    <br />
+    <asp:Label>Department</asp:Label>
+    List<SelectListItem> listDepartments = new List<SelectListItem>();
+    listDepartments.Add(new SelectListItem { Text = "IC&T", Value = "IC&T" });
+    listDepartments.Add(new SelectListItem { Text = "CS", Value = "CS" });
+    listDepartments.Add(new SelectListItem { Text = "ECE", Value = "ECE" });
+    listDepartments.Add(new SelectListItem { Text = "EEE", Value = "EEE" });
+    @Html.DropDownList("Departments", new SelectList(listDepartments, "Value", "Text"))
+    <br />
+    <asp:Label>Course</asp:Label>
+    List<SelectListItem> listCourses = new List<SelectListItem>();
+    listCourses.Add(new SelectListItem { Text = "IT", Value = "IT" });
+    listCourses.Add(new SelectListItem { Text = "CCE", Value = "CCE" });
+    @Html.DropDownList("Courses", new SelectList(listCourses, "Value", "Text"))
+    <br />
+    <asp:Label>Semester</asp:Label>
+    List<SelectListItem> listSemesters = new List<SelectListItem>();
+    listSemesters.Add(new SelectListItem { Text = "I", Value = "1" });
+    listSemesters.Add(new SelectListItem { Text = "II", Value = "2" });
+    listSemesters.Add(new SelectListItem { Text = "III", Value = "3" });
+    listSemesters.Add(new SelectListItem { Text = "IV", Value = "4" });
+    listSemesters.Add(new SelectListItem { Text = "V", Value = "5" });
+    listSemesters.Add(new SelectListItem { Text = "VI", Value = "6" });
+    listSemesters.Add(new SelectListItem { Text = "VII", Value = "7" });
+    listSemesters.Add(new SelectListItem { Text = "VIII", Value = "8" });
+    @Html.DropDownList("Courses", new SelectList(listSemesters, "Value", "Text"))
+}

@@ -10,14 +10,14 @@
         <input type="text" id="username" name="username" required><span class="highlight"></span><span class="bar"></span>
         <label>Username</label>
     </div>
-        <div class="group">
-            <input type="password" id="password" name="password" required><span class="highlight"></span><span class="bar"></span>
-            <label>Password</label>
-        </div>
-        <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("Clicked", "Login")'">
-            Login
-            <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-        </button>
+    <div class="group">
+       <input type="password" id="password" name="password" required><span class="highlight"></span><span class="bar"></span>
+       <label>Password</label>
+    </div>
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("Clicked", "Login")'">
+        Login
+        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
 }
 
 <h2>@ViewBag.Result</h2>
