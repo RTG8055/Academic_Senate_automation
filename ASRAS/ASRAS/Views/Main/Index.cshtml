@@ -17,9 +17,10 @@
     <div class="tab-content">
 
         <div id="create" class="tab-pane fade in active" style="align-content:center;">
-            <input id="changeincurriculum" type="button" value="Change in Curriculum" />
+            <input id="changeincurriculum" type="button" value="Change in Curriculum" onclick="location.href='@Url.Action("Index", "ChangeInCurriculum")'"/>
             <input id="changeincoursestructure" type="button" value="Change in Course Structure" />
             <input id="changeinregulations" type="button" value="Change in Regulations" />
+
         </div>
 
         <div id="view" class="tab-pane fade">
