@@ -9,11 +9,28 @@
 
 <h2>Modify Syllabus - Page 1</h2>
 <h3> Fill the full form before submitting Mr. @ViewData["Uname"]</h3>
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.intellisense.js"></script>
+<script type="text/javascript">
+    function InstituteSelected()
+    {
+        var curr_ins = $("#Institutes :selected").text();
+        @ViewBag.curr_ins = curr_ins;
+        console.log(curr_ins);
+        this.form.submit();
+    }
+    $(document).ready(function () {
+
+        $("Institutes").change(function (event) {
+            alert("You have Selected  :: "+$(this).val());
+        });
+    });
+</script>
 
 @using (Html.BeginForm("form1"))
 {
     <asp:Label>Institute</asp:Label>
-    @Html.DropDownList("Institutes", new SelectList(ViewBag.listItem,"Value","Text"), "--Select Institute--", new { @onchange = "this.form.submit()" })
+    @Html.DropDownList("Institutes", new SelectList(ViewBag.listItem,"Value","Text"), "--Select Institute--", new { @onchange = "InstituteSelected()" })
     //@ViewBag.curr_ins = Html.Id("Institutes");
     <br />
     <asp:Label>Department</asp:Label>
