@@ -16,11 +16,11 @@ namespace ASRAS.Controllers
 {
     public class LoginController : Controller
     {
-        protected UserRepository _repository;
+        protected UserRepository _repositoryUser;
 
         public LoginController()
         {
-            _repository = new UserRepository();
+            _repositoryUser= new UserRepository();
         }
           
         public ActionResult Login()
@@ -83,7 +83,7 @@ namespace ASRAS.Controllers
             */
             //Working COde for insertion
             //-----------
-            //User a = _repository.InsertPost(u);
+            //User a = _repositoryUser.InsertPost(u);
             //ViewBag.Result = a.ToJson().ToString();
             //-----------
 
@@ -91,7 +91,7 @@ namespace ASRAS.Controllers
             //---------------------
             /*
             string res = null;
-            List<User> a = _repository.SelectAll();
+            List<User> a = _repositoryUser.SelectAll();
             foreach( User s in a)
             {
                 if(res == null) 
@@ -108,7 +108,7 @@ namespace ASRAS.Controllers
             //-----------------
             /*
             string res = null;
-            List<User> a = _repository.Filter("{UserName: 'RSingh', Pass:'12345678'}");
+            List<User> a = _repositoryUser.Filter("{UserName: 'RSingh', Pass:'12345678'}");
             if (a == null)
                 ViewBag.Result = "NotFound";
             else
@@ -139,7 +139,7 @@ namespace ASRAS.Controllers
             User curr_user = null;
             try
             {
-                List<User> Hits = _repository.Filter("{UserName: '" + Entered_Uname + "', Pass: '" + Entered_Pass + "'}");
+                List<User> Hits = _repositoryUser.Filter("{UserName: '" + Entered_Uname + "', Pass: '" + Entered_Pass + "'}");
                 if (Hits == null)
                     //ViewBag.Result = "Error!!";
                     return Content("<script language = 'javascript' type = 'text/javascript'>alert('ERROR!!'); window.location.href = 'login'</script>");

@@ -26,17 +26,22 @@ namespace ASRAS.Models
             Institute Ins = this._collection.Find(new BsonDocument { { "Name", Ins_name } }).FirstAsync().Result;
             return Ins;
         }*/
-        public List<string> GetInstitutes()
+        //public List<string> GetInstitutes()
+        public List<Institute> GetInstitutes()
         {
-            //function to get the list of institutes for filling the dropbox
+            //function to get the list of all the institutes
+            //modifed------------------//function to get the list of institutes in string format
             var ALL = this._collection.Find(new BsonDocument()).ToListAsync();
-            List<string> Ins_names = new List<string>();
+            //List<string> Ins_names = new List<string>();
+            List<Institute> Ins_List = new List<Institute>();
             
             foreach (Institute i in ALL.Result)
             {
-                Ins_names.Add(i.Name.ToString());
+                //Ins_names.Add(i.Name.ToString());
+                Ins_List.Add(i);
             }
-            return Ins_names;
+            //return Ins_names;
+            return Ins_List;
         }
         public List<string> GetDepts(string Ins_name)
         {

@@ -1,0 +1,13 @@
+﻿
+@model ASRAS.Models.CourseViewModal
+
+@{
+    Layout = null;
+}
+
+@Html.DropDownListFor(p => p.SelectedCourseID,
+    Model.CourseIEnum,
+    "Select a Course",
+    //new <a href="mailto:{@id="Course_DropDownId"></a>}"
+    new { @id = "City_DropDownId", @class = "City_DropDownClass"})
+

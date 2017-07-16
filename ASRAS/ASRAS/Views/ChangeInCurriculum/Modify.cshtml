@@ -4,7 +4,6 @@
     //SelectList I = new SelectList(@TempData["Ins"].ToString(), @TempData["Ins"].ToString(), @TempData["Ins"].ToString());
     List<String> names = new List<String>();
     names = (List<String>)(ViewData["Ins"]);
-    
 }
 
 <h2>Modify Syllabus - Page 1</h2>
@@ -12,8 +11,15 @@
 <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="~/Scripts/jquery-1.10.2.intellisense.js"></script>
 <script type="text/javascript">
-    function InstituteSelected()
+    function SelectedChange(selectedOption,dropdowntype)
     {
+        var myoptions ;
+        var myselect;
+        if(dropdowntype == 'Institutes')
+        {
+            myselect = $('Department');
+            
+        }
         var curr_ins = $("#Institutes :selected").text();
         @ViewBag.curr_ins = curr_ins;
         console.log(curr_ins);
@@ -26,11 +32,21 @@
         });
     });
 </script>
+<form>
+    <select id="Institute" onchange="SelectedChange(this,'institute');">
+        <option value="">Select Institute</option>
+        @foreach( string i in names)
+        {
+            <option value= i>i</option>
+        }
+    </select>
+    <select style="display: none;" id="Department" onchange="SelectedChange(this,'department');"></select>
+</form>
 
 @using (Html.BeginForm("form1"))
 {
     <asp:Label>Institute</asp:Label>
-    @Html.DropDownList("Institutes", new SelectList(ViewBag.listItem,"Value","Text"), "--Select Institute--", new { @onchange = "InstituteSelected()" })
+    @Html.DropDownList("Institutes", new SelectList(ViewBag.listItem,"Value","Text"), "--Select Institute--", new { @onchange = "InstituteSelected(this,'Institutes')" })
     //@ViewBag.curr_ins = Html.Id("Institutes");
     <br />
     <asp:Label>Department</asp:Label>
