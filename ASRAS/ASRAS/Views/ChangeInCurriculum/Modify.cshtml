@@ -8,78 +8,67 @@
 
 <h2>Modify Syllabus - Page 1</h2>
 <h3> Fill the full form before submitting Mr. @ViewData["Uname"]</h3>
-<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="~/Scripts/jquery-1.10.2.intellisense.js"></script>
 <script type="text/javascript">
-    function SelectedChange(selectedOption,dropdowntype)
-    {
-        var myoptions ;
-        var myselect;
-        if(dropdowntype == 'Institutes')
-        {
-            myselect = $('Department');
-            
-        }
-        var curr_ins = $("#Institutes :selected").text();
-        @ViewBag.curr_ins = curr_ins;
-        console.log(curr_ins);
-        this.form.submit();
-    }
     $(document).ready(function () {
-
-        $("Institutes").change(function (event) {
-            alert("You have Selected  :: "+$(this).val());
+        $('input[type=radio][name=Subjects]').change(function () {
+            var selectedInstituteID = $('#Institute_DropDownId option:selected').val();
+            var selectedDepartmentID = $('#Department_DropDownId option:selected').val();
+            var selectedCourseID = $('#Course_DropDownId option:selected').val();
+            var selectedSemeterID = $('#Semester_DropDownId option:selected').val();
+            var selectedSubtype;
+            if (this.value == 'Core') {
+                selectedSubtype = 1;
+            }
+            else if (this.value == 'PE') {
+                selectedSubtype = 2;
+            }
+            else if (this.value == 'OE') {
+                selectedSubtype = 3;
+            }
+            $('#SubjectContainer').load('@Url.Action("SubjectView")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID + '&Sub_type=' + selectedSubtype);
         });
     });
 </script>
-<form>
-    <select id="Institute" onchange="SelectedChange(this,'institute');">
-        <option value="">Select Institute</option>
-        @foreach( string i in names)
-        {
-            <option value= i>i</option>
-        }
-    </select>
-    <select style="display: none;" id="Department" onchange="SelectedChange(this,'department');"></select>
-</form>
-
-@using (Html.BeginForm("form1"))
-{
-    <asp:Label>Institute</asp:Label>
-    @Html.DropDownList("Institutes", new SelectList(ViewBag.listItem,"Value","Text"), "--Select Institute--", new { @onchange = "InstituteSelected(this,'Institutes')" })
-    //@ViewBag.curr_ins = Html.Id("Institutes");
-    <br />
-    <asp:Label>Department</asp:Label>
-    //@ViewBag.curr_ins=  Html.Id("Institutes").ToString();
-    List<SelectListItem> listDepartments = new List<SelectListItem>();
-    listDepartments.Add(new SelectListItem { Text = ViewBag.curr_ins , Value = ViewBag.curr_ins });
-    listDepartments.Add(new SelectListItem { Text = "CS", Value = "CS" });
-    listDepartments.Add(new SelectListItem { Text = "ECE", Value = "ECE" });
-    listDepartments.Add(new SelectListItem { Text = "EEE", Value = "EEE" });
-    @Html.DropDownList("Departments", new SelectList(listDepartments, "Value", "Text"))
-    <br />
-    <asp:Label>Course</asp:Label>
-    List<SelectListItem> listCourses = new List<SelectListItem>();
-    listCourses.Add(new SelectListItem { Text = "IT", Value = "IT" });
-    listCourses.Add(new SelectListItem { Text = "CCE", Value = "CCE" });
-    @Html.DropDownList("Courses", new SelectList(listCourses, "Value", "Text"))
-    <br />
-    <asp:Label>Semester</asp:Label>
-    List<SelectListItem> listSemesters = new List<SelectListItem>();
-    listSemesters.Add(new SelectListItem { Text = "I", Value = "1" });
-    listSemesters.Add(new SelectListItem { Text = "II", Value = "2" });
-    listSemesters.Add(new SelectListItem { Text = "III", Value = "3" });
-    listSemesters.Add(new SelectListItem { Text = "IV", Value = "4" });
-    listSemesters.Add(new SelectListItem { Text = "V", Value = "5" });
-    listSemesters.Add(new SelectListItem { Text = "VI", Value = "6" });
-    listSemesters.Add(new SelectListItem { Text = "VII", Value = "7" });
-    listSemesters.Add(new SelectListItem { Text = "VIII", Value = "8" });
-    @Html.DropDownList("Courses", new SelectList(listSemesters, "Value", "Text"))
-    <div>
-    <asp:Label>Subject Type</asp:Label><br>
-    Core:<input type="radio" name="Sub_type" value="Core" >
-    PE:<input type="radio" name="Sub_type" value="PE" >
-    OE:<input type="radio" name="Sub_type" value="OE" >
-
-    </div>
-}
+<table>
+    <tr>
+        <th>Institute</th>
+        <th>Department</th>
+        <th>Course</th>
+        <th>Semester</th>
+        <th>Subject</th>
+    </tr>
+    <tr>
+        <td>
+            <div id="InstituteContainer">
+                @Html.Action("InstituteView")
+            </div>
+        </td>
+        <td>
+            <div id="DepartmentContainer">
+                @Html.Action("DepartmentView", new { InstituteID = 123 })
+            </div>
+        </td>
+        <td>
+            <div id="CourseContainer">
+                @Html.Action("CourseView", new { InstituteID = 123, DeptID = 1 });
+            </div>
+        </td>
+        <td>
+            <div id="SemesterContainer">
+                @Html.Action("SemesterView",new { InstituteId = 123, DeptID = 1, CourseId = 1})
+            </div>
+        </td>
+        <td>
+            <div id="SubjectType">
+                Core:<input type="radio" name="Subjects" value="1" /><br />
+                PE:<input type="radio" name="Subjects" value="2" /><br />
+                OE:<input type="radio" name="Subjects" value="3" /><br />
+            </div>
+        </td>
+        <td>
+            <div id="SubjectContianer">
+                @Html.Action("SubjectView" ,new { InstituteId = 123, DeptID = 1, CourseId = 1,SemesterID="1", Sub_type = 1 })
+            </div>
+        </td>
+    </tr>
+</table>

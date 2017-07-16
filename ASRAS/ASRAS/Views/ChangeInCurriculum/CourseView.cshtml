@@ -8,6 +8,17 @@
 @Html.DropDownListFor(p => p.SelectedCourseID,
     Model.CourseIEnum,
     "Select a Course",
-    //new <a href="mailto:{@id="Course_DropDownId"></a>}"
-    new { @id = "City_DropDownId", @class = "City_DropDownClass"})
+    new { @id = "Course_DropDownId", @class = "Course_DropDownClass"})
 
+<script type="text/javascript">
+    $(function () {
+        $('#Course_DropDownId').change(function () {
+            var selectedInstituteID = $('#Institute_DropDownId option:selected').val();
+            var selectedDepartmentID = $('#Department_DropDownId option:selected').val();
+
+            var selectedCourseID = this.value;
+
+            $('#SemesterContainer').load('@Url.Action("SemesterView")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID);
+        });
+    });
+</script>

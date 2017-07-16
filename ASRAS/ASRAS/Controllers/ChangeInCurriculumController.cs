@@ -125,7 +125,7 @@ namespace ASRAS.Controllers
         public ActionResult Index()
         {
             TempData["UserName3"] = TempData["UserName2"];
-            ViewData["Uname"] = TempData["UserName3"];
+            ViewData["Uname"] = TempData["UserName2"];
             return View();
         }
         public static InstituteViewModal ivm = new InstituteViewModal(); 
@@ -189,30 +189,49 @@ namespace ASRAS.Controllers
             return View(cvm);
         }
 
-        //-------------------------------------
-      /*  [HttpPost]
-        public ActionResult UpdateInstitute(int Institutes)
+        public static SemesterViewModal svm = new SemesterViewModal();
+
+        public ActionResult SemesterView(Double? InstituteID,Double? DeptID, Double? CourseID)
         {
-            ViewBag.curr_ins = Institutes;
-            return View("Modify");
-        }
-       /* public ActionResult Modify()
-        {
-            //List<String> All_ins = _repositoryIns.GetInstitutes();
-            
-            TempData["Ins"] = All_ins;
-            ViewData["Ins"] = All_ins;
-            List<SelectListItem> listInstitutes = new List<SelectListItem>();
-            foreach (Institute i in All_ins)
+            svm.SemesterList.Clear();
+            if (InstituteID != 123 && DeptID != null && CourseID != null)
             {
-                listInstitutes.Add(new SelectListItem { Text = i, Value = i });
+                Institute i = All_ins2.Find(p => p.Ins_id == InstituteID);
+                Department d = i.Departments.Find(p => p.D_id == DeptID);
+                Course c = d.Courses.Find(p => p.C_id == CourseID);
+                foreach (Semester s in c.Semesters)
+                {
+                    svm.SemesterList.Add(s);
+                }
             }
-            ViewBag.ListItem = listInstitutes;
-            return View("Modify");
-        }*/
-        public ActionResult Modify2()
+            return View(svm);
+        }
+        public static SubjectViewModal suvm = new SubjectViewModal();
+        public ActionResult SubjectView(Double? InstituteID, Double? DeptID, Double? CourseID,string SemesterID, Double? Sub_type)
         {
-            return View("Modify2");
+            suvm.SubjectList.Clear();
+            if(InstituteID!=123 && DeptID!=null &&  CourseID!=null && SemesterID!=null && Sub_type!=null)
+            {
+                Institute i = All_ins2.Find(p => p.Ins_id == InstituteID);
+                Department d = i.Departments.Find(p => p.D_id == DeptID);
+                Course c = d.Courses.Find(p => p.C_id == CourseID);
+                Semester s = c.Semesters.Find(p => p.S_id == SemesterID);
+                if (Sub_type == 1)
+                {
+                    suvm.SubjectList = s.Core_subs;
+                }
+                else if (Sub_type == 2)
+                {
+                    suvm.SubjectList = s.PE_subs;
+                }
+                else
+                    suvm.SubjectList = s.OE_subs;
+            }
+            return View(suvm);
+        }
+        public ActionResult Modify()
+        {
+            return View("Modify");
         }
     }
 }
