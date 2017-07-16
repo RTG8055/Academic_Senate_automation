@@ -207,6 +207,10 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\Main\download.png" />
+    <Content Include="Views\Main\index1.html" />
+    <Content Include="Views\Main\navbar-fixed-top.css" />
+    <Content Include="images\url.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
