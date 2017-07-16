@@ -1,0 +1,28 @@
+﻿
+@model ASRAS.Models.InstituteViewModal
+
+@{
+    Layout = null;
+}
+
+
+@Html.DropDownListFor(p => p.SelectedInstituteID, 
+    Model.InstituteIEnum,
+    "SelectInstitute",
+    new { @id = "Institute_DropDownId", @class = "Institute_DropDownClass"})
+
+<script type="text/javascript">
+    $(function () {
+        $('#Institute_DropDownId').change(function () {
+            var selectedInstituteId = this.value;
+            
+            console.log(selectedInstituteId);
+            $('#DepartmentContainer').load('@Url.Action("DepartmentView")?InstituteID=' + selectedInstituteId);
+            console.log(selectedInstituteId);
+            // clear up the city drop down list as no state is selected
+            $('#CourseContainer').load('@Url.Action("CourseView")');
+            $('#SemesterContainer').load('@Url.Action("SemesterView")');
+            $('#SubjectType').
+        });
+    });
+</script>

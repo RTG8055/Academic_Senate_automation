@@ -26,25 +26,31 @@ namespace ASRAS.Models
             Institute Ins = this._collection.Find(new BsonDocument { { "Name", Ins_name } }).FirstAsync().Result;
             return Ins;
         }*/
-        public List<string> GetInstitutes()
+        //public List<string> GetInstitutes()
+        public List<Institute> GetInstitutes()
         {
-            //function to get the list of institutes for filling the dropbox
+            //function to get the list of all the institutes
+            //modifed------------------//function to get the list of institutes in string format
             var ALL = this._collection.Find(new BsonDocument()).ToListAsync();
-            List<string> Ins_names = null;
+            //List<string> Ins_names = new List<string>();
+            List<Institute> Ins_List = new List<Institute>();
+            
             foreach (Institute i in ALL.Result)
             {
-                Ins_names.Add(i.Name);
+                //Ins_names.Add(i.Name.ToString());
+                Ins_List.Add(i);
             }
-            return Ins_names;
+            //return Ins_names;
+            return Ins_List;
         }
         public List<string> GetDepts(string Ins_name)
         {
             //function to get the list of departments in an institute for filling the dropbox once the institute is chosen
             Institute Ins = this._collection.Find(new BsonDocument { { "Name", Ins_name } }).FirstAsync().Result;
-            List<string> Dept_names = null;
-            foreach(Department d in Ins.Departments)
+            List<string> Dept_names = new List<string>();
+            foreach (Department d in Ins.Departments)
             {
-                Dept_names.Add(d.Dname);
+                Dept_names.Add(d.Dname.ToString());
             }
             return Dept_names;
         }
@@ -52,14 +58,14 @@ namespace ASRAS.Models
         {
             //function to get the list of courses in a department of an institute for the dropbox once the department in also chosen
             Institute Ins = this._collection.Find(new BsonDocument { { "Name", Ins_name } }).FirstAsync().Result;
-            List<string> Course_names = null;
-            foreach(Department D in Ins.Departments)
+            List<string> Course_names = new List<string>();
+            foreach (Department D in Ins.Departments)
             {
                 if(D.Dname.Equals(Dept_name))
                 {
                     foreach(Course c in D.Courses)
                     {
-                        Course_names.Add(c.Cname);
+                        Course_names.Add(c.Cname.ToString());
                     }
                 }
             }
@@ -69,7 +75,7 @@ namespace ASRAS.Models
         {
             //fucntion to get the list of available semesters in the course /*same as above*/
             Institute Ins = this._collection.Find(new BsonDocument { { "Name", Ins_name } }).FirstAsync().Result;
-            List<string> Semester_numbers = null;
+            List<string> Semester_numbers = new List<string>();
             foreach (Department D in Ins.Departments)
             {
                 if (D.Dname.Equals(Dept_name))
@@ -80,7 +86,7 @@ namespace ASRAS.Models
                         {
                             foreach(Semester s in c.Semesters)
                             {
-                                Semester_numbers.Add(s.S_id);
+                                Semester_numbers.Add(s.S_id.ToString());
                             }
                         }
                     }

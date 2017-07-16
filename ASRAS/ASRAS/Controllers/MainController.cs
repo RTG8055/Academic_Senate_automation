@@ -10,6 +10,8 @@ namespace ASRAS.Controllers
     {
         public ActionResult Index()
         {
+            TempData["UserName2"] = TempData["UserName"];
+            ViewBag.Uname = TempData["UserName2"];
             return View();
         }
     }

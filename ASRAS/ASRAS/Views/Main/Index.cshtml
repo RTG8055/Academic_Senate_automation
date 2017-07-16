@@ -1,35 +1,46 @@
 ﻿@{
+
     ViewBag.Title = "View";
     var Uname = (TempData["UserName"]).ToString();
-
-}
-
-<row>
-
-    <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="#create" data-toggle="tab">Create Proposal</a></li>
-        <li role="presentation"><a href="#view" data-toggle="tab">View Proposals</a></li>
-    </ul>
-    <h2> Welcome @Uname</h2> 
-    
-   
-    
-    <div class="tab-content">
-
-        <div id="create" class="tab-pane fade in active" style="align-content:center;">
-            <input id="changeincurriculum" type="button" value="Change in Curriculum" onclick="location.href='@Url.Action("Index", "ChangeInCurriculum")'"/>
-            <input id="changeincoursestructure" type="button" value="Change in Course Structure" />
-            <input id="changeinregulations" type="button" value="Change in Regulations" />
-
-        </div>
-
-        <div id="view" class="tab-pane fade">
-            <ul class="list-group">
-                <li class="list-group-item">Proposal 1</li>
-                <li class="list-group-item">Proposal 2</li>
-                <li class="list-group-item">Proposal 3</li>
+ <html>
+ <head>
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>@ViewBag.Title - ASRAS</title>
+     <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
+     @Styles.Render("~/Content/css")
+     @Scripts.Render("~/bundles/modernizr")
+     
+ </head>
+<body><h1> Welcome @Uname</h1></body>
+<body>
+    <div class="container">
+        <div.one class="jumbotron" style="width:300px;float: left;">
+            <img src="~/images/url.gif" align="left"/>
+        </div.one>
+        <div.two style="float:right;width:700px">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#create" data-toggle="tab">Create Proposal</a></li>
+                <li role="presentation"><a href="#view" data-toggle="tab">View Proposals</a></li>
             </ul>
-        </div>
-
+            <div class="tab-content">
+                <div id="create" class="tab-pane fade in active" style="align-content:center;">
+                    <div class="jumbotron">
+                        <a href="../../ChangeInCurriculum/Index" class="list-group-item">Change in Curriculum </a>
+                        <a href="../../components/#navbar" class="list-group-item">Change in Course structure </a>
+                        <a href="../../components/#navbar" class="list-group-item">Change in Regulation </a>
+                    </div>
+                </div>
+                <div id="view" class="tab-pane fade">
+                    <div class="jumbotron">
+                        <a href="../../components/#navbar" class="list-group-item">Proposal 1</a>
+                        <a href="../../components/#navbar" class="list-group-item">Proposal 2</a>
+                        <a href="../../components/#navbar" class="list-group-item">Proposal 3</a>
+                    </div>
+                </div>
+            </div>
+        </div.two>
     </div>
-</row>
+ </body>
+</html>
+}
