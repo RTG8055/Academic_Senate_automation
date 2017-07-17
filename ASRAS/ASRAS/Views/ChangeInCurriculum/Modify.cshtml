@@ -1,23 +1,42 @@
 ﻿
 @{
     ViewBag.Title = "Page1";
+    //SelectList I = new SelectList(@TempData["Ins"].ToString(), @TempData["Ins"].ToString(), @TempData["Ins"].ToString());
+    List<String> names = new List<String>();
+    names = (List<String>)(ViewData["Ins"]);
+    
 }
 
 <h2>Modify Syllabus - Page 1</h2>
+<h3> Fill the full form before submitting Mr. @ViewData["Uname"]</h3>
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.intellisense.js"></script>
+<script type="text/javascript">
+    function InstituteSelected()
+    {
+        var curr_ins = $("#Institutes :selected").text();
+        @ViewBag.curr_ins = curr_ins;
+        console.log(curr_ins);
+        this.form.submit();
+    }
+    $(document).ready(function () {
 
-@using (Html.BeginForm())
+        $("Institutes").change(function (event) {
+            alert("You have Selected  :: "+$(this).val());
+        });
+    });
+</script>
+
+@using (Html.BeginForm("form1"))
 {
     <asp:Label>Institute</asp:Label>
-    List<SelectListItem> listInstitutes = new List<SelectListItem>();
-    listInstitutes.Add(new SelectListItem { Text = "MIT",Value = "MIT"});
-    listInstitutes.Add(new SelectListItem { Text = "KMC", Value = "KMC" });
-    listInstitutes.Add(new SelectListItem { Text = "SOC", Value = "SOC" });
-    listInstitutes.Add(new SelectListItem { Text = "DOC", Value = "DOC" });
-    @Html.DropDownList("Institutes", new SelectList(listInstitutes, "Value", "Text"))
+    @Html.DropDownList("Institutes", new SelectList(ViewBag.listItem,"Value","Text"), "--Select Institute--", new { @onchange = "InstituteSelected()" })
+    //@ViewBag.curr_ins = Html.Id("Institutes");
     <br />
     <asp:Label>Department</asp:Label>
+    //@ViewBag.curr_ins=  Html.Id("Institutes").ToString();
     List<SelectListItem> listDepartments = new List<SelectListItem>();
-    listDepartments.Add(new SelectListItem { Text = "IC&T", Value = "IC&T" });
+    listDepartments.Add(new SelectListItem { Text = ViewBag.curr_ins , Value = ViewBag.curr_ins });
     listDepartments.Add(new SelectListItem { Text = "CS", Value = "CS" });
     listDepartments.Add(new SelectListItem { Text = "ECE", Value = "ECE" });
     listDepartments.Add(new SelectListItem { Text = "EEE", Value = "EEE" });
@@ -40,4 +59,11 @@
     listSemesters.Add(new SelectListItem { Text = "VII", Value = "7" });
     listSemesters.Add(new SelectListItem { Text = "VIII", Value = "8" });
     @Html.DropDownList("Courses", new SelectList(listSemesters, "Value", "Text"))
+    <div>
+    <asp:Label>Subject Type</asp:Label><br>
+    Core:<input type="radio" name="Sub_type" value="Core" >
+    PE:<input type="radio" name="Sub_type" value="PE" >
+    OE:<input type="radio" name="Sub_type" value="OE" >
+
+    </div>
 }
