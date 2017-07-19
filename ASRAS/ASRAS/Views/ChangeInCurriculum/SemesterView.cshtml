@@ -23,7 +23,9 @@
 
             var selectedSemesterID = this.value;
 
-            $('#SemesterContainer').load('@Url.Action("SemesterView")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID);
+            //$('#SemesterContainer').load('Url.Action("SemesterView")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID);
+            
+            $('#SubjectContainer').load('@Url.Action("SubjectView")');
         });
     });
 </script>

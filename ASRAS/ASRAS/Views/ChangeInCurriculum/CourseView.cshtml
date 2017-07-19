@@ -19,6 +19,7 @@
             var selectedCourseID = this.value;
 
             $('#SemesterContainer').load('@Url.Action("SemesterView")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID);
+            $('#SubjectContainer').load('@Url.Action("SubjectView")');
         });
     });
 </script>
