@@ -16,6 +16,9 @@
             var selectedInstituteId = $('#Institute_DropDownId option:selected').val();
             var selectedDepartmentId = this.value;
             $('#CourseContainer').load('@Url.Action("CourseView")?InstituteID=' + selectedInstituteId + '&DeptID=' + selectedDepartmentId);
+
+            $('#SemesterContainer').load('@Url.Action("SemesterView")');
+            $('#SubjectContainer').load('@Url.Action("SubjectView")');
         });
     });
 </script>
