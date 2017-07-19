@@ -15,7 +15,7 @@
             var selectedDepartmentID = $('#Department_DropDownId option:selected').val();
             var selectedCourseID = $('#Course_DropDownId option:selected').val();
             var selectedSemeterID = $('#Semester_DropDownId option:selected').val();
-            var selectedSubtype;
+            var selectedSubtype = this.value;
             if (this.value == 'Core') {
                 selectedSubtype = 1;
             }
@@ -25,6 +25,7 @@
             else if (this.value == 'OE') {
                 selectedSubtype = 3;
             }
+            console.log(selectedInstituteID + " " + selectedDepartmentID + " " + selectedCourseID + " " + selectedSemeterID + " " + selectedSubtype);
             $('#SubjectContainer').load('@Url.Action("SubjectView")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID + '&Sub_type=' + selectedSubtype);
         });
     });
@@ -67,7 +68,7 @@
         </td>
         <td>
             <div id="SubjectContianer">
-                @Html.Action("SubjectView" ,new { InstituteId = 123, DeptID = 1, CourseId = 1,SemesterID="1", Sub_type = 1 })
+                @Html.Action("SubjectView" ,new { InstituteId = 123, DeptID = 1, CourseId = 1,SemesterID=1, Sub_type = 1 })
             </div>
         </td>
     </tr>

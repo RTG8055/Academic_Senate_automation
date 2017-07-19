@@ -207,7 +207,7 @@ namespace ASRAS.Controllers
             return View(svm);
         }
         public static SubjectViewModal suvm = new SubjectViewModal();
-        public ActionResult SubjectView(Double? InstituteID, Double? DeptID, Double? CourseID,string SemesterID, Double? Sub_type)
+        public ActionResult SubjectView(Double? InstituteID, Double? DeptID, Double? CourseID,Double? SemesterID, Double? Sub_type)
         {
             suvm.SubjectList.Clear();
             if(InstituteID!=123 && DeptID!=null &&  CourseID!=null && SemesterID!=null && Sub_type!=null)
@@ -215,7 +215,7 @@ namespace ASRAS.Controllers
                 Institute i = All_ins2.Find(p => p.Ins_id == InstituteID);
                 Department d = i.Departments.Find(p => p.D_id == DeptID);
                 Course c = d.Courses.Find(p => p.C_id == CourseID);
-                Semester s = c.Semesters.Find(p => p.S_id == SemesterID);
+                Semester s = c.Semesters.Find(p => p.S_id.Equals(SemesterID));
                 if (Sub_type == 1)
                 {
                     suvm.SubjectList = s.Core_subs;
