@@ -7,14 +7,14 @@
 }
 
 <h2>Modify Syllabus - Page 1</h2>
-<h3> Fill the full form before submitting Mr. @ViewData["Uname"]</h3>
+<h3> Fill the full form before submitting Mr. @ViewBag.Uname</h3>
 <script type="text/javascript">
     $(document).ready(function () {
         $('input[type=radio][name=Subjects]').change(function () {
             var selectedInstituteID = $('#Institute_DropDownId option:selected').val();
             var selectedDepartmentID = $('#Department_DropDownId option:selected').val();
             var selectedCourseID = $('#Course_DropDownId option:selected').val();
-            var selectedSemeterID = $('#Semester_DropDownId option:selected').val();
+            var selectedSemesterID = $('#Semester_DropDownId option:selected').val();
             var selectedSubtype = this.value;
             if (this.value == 'Core') {
                 selectedSubtype = 1;
@@ -25,7 +25,7 @@
             else if (this.value == 'OE') {
                 selectedSubtype = 3;
             }
-            console.log(selectedInstituteID + " " + selectedDepartmentID + " " + selectedCourseID + " " + selectedSemeterID + " " + selectedSubtype);
+            console.log(selectedInstituteID + " " + selectedDepartmentID + " " + selectedCourseID + " " + selectedSemesterID + " " + selectedSubtype);
             $('#SubjectContainer').load('@Url.Action("SubjectView")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID + '&Sub_type=' + selectedSubtype);
         });
     });
@@ -56,7 +56,7 @@
         </td>
         <td>
             <div id="SemesterContainer">
-                @Html.Action("SemesterView",new { InstituteId = 123, DeptID = 1, CourseId = 1})
+                @Html.Action("SemesterView",new { InstituteID = 123, DeptID = 1, CourseID = 1})
             </div>
         </td>
         <td>
@@ -67,8 +67,8 @@
             </div>
         </td>
         <td>
-            <div id="SubjectContianer">
-                @Html.Action("SubjectView" ,new { InstituteId = 123, DeptID = 1, CourseId = 1,SemesterID=1, Sub_type = 1 })
+            <div id="SubjectContainer">
+                @Html.Action("SubjectView" ,new { InstituteId = 123, DeptID = 1, CourseID = 1,SemesterID=1, Sub_type = 1 })
             </div>
         </td>
     </tr>

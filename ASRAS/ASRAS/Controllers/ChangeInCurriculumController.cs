@@ -126,6 +126,7 @@ namespace ASRAS.Controllers
         {
             TempData["UserName3"] = TempData["UserName2"];
             ViewData["Uname"] = TempData["UserName2"];
+            ViewBag.Uname = TempData["UserName2"];
             return View();
         }
         public static InstituteViewModal ivm = new InstituteViewModal(); 
@@ -215,7 +216,9 @@ namespace ASRAS.Controllers
                 Institute i = All_ins2.Find(p => p.Ins_id == InstituteID);
                 Department d = i.Departments.Find(p => p.D_id == DeptID);
                 Course c = d.Courses.Find(p => p.C_id == CourseID);
-                Semester s = c.Semesters.Find(p => p.S_id.Equals(SemesterID));
+                //ToDouble(SemesterID);
+                
+                Semester s = c.Semesters.Find(p => Double.Parse(p.S_id) == SemesterID);
                 if (Sub_type == 1)
                 {
                     suvm.SubjectList = s.Core_subs;
@@ -231,6 +234,8 @@ namespace ASRAS.Controllers
         }
         public ActionResult Modify()
         {
+            TempData["UserName4"] = TempData["UserName3"];
+            ViewBag.Uname = TempData["UserName3"];
             return View("Modify");
         }
     }

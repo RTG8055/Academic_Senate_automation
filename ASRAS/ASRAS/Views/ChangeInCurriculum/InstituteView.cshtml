@@ -23,6 +23,7 @@
             $('#CourseContainer').load('@Url.Action("CourseView")');
             $('#SemesterContainer').load('@Url.Action("SemesterView")');
             $('#SubjectContainer').load('@Url.Action("SubjectView")');
+            $('input[name="Subjects"').attr('checked', false);
         });
     });
 </script>

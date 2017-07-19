@@ -11,7 +11,7 @@ namespace ASRAS.Controllers
         public ActionResult Index()
         {
             TempData["UserName2"] = TempData["UserName"];
-            ViewBag.Uname = TempData["UserName2"];
+            ViewBag.Uname = TempData["UserName"];
             return View();
         }
     }
