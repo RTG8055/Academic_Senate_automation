@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Word = Microsoft.Office.Interop.Word;
 using System.Web.Mvc;
 
 namespace ASRAS.Controllers
@@ -12,6 +13,7 @@ namespace ASRAS.Controllers
     {
         protected InstituteRepository _repositoryIns;
         public static List<Institute> All_ins2 = new List<Institute>();
+
         /*
         {
             new Institute
@@ -114,6 +116,7 @@ namespace ASRAS.Controllers
             }
         };
         */
+
         public ChangeInCurriculumController()
         {
             _repositoryIns = new InstituteRepository();
@@ -129,6 +132,7 @@ namespace ASRAS.Controllers
             ViewBag.Uname = TempData["UserName2"];
             return View();
         }
+
         public static InstituteViewModal ivm = new InstituteViewModal(); 
         public ActionResult InstituteView()
         {
@@ -232,10 +236,32 @@ namespace ASRAS.Controllers
             }
             return View(suvm);
         }
+
         public ActionResult Modify()
         {
             TempData["UserName4"] = TempData["UserName3"];
             ViewBag.Uname = TempData["UserName3"];
+            return View("Modify");
+        }
+
+        public ActionResult GenerateDocument(string documentabstract, string objectives,string outcomes, string fulltext, string references, string location)
+        {
+            Word.Application wordApplication;
+            Word.Document wordDocument;
+            wordApplication = new Word.Application();
+            wordApplication.Visible = false;
+            wordDocument = wordApplication.Documents.Add();
+
+            wordDocument = DocumentGenerator.insertText(documentabstract, wordDocument);
+            wordDocument = DocumentGenerator.insertText(objectives, wordDocument);
+            wordDocument = DocumentGenerator.insertText(outcomes, wordDocument);
+            wordDocument = DocumentGenerator.insertText(fulltext, wordDocument);
+            wordDocument = DocumentGenerator.insertText(references, wordDocument);
+            DocumentGenerator.saveDocument(location, wordDocument);
+
+            wordDocument.Close();
+            wordApplication.Quit();
+
             return View("Modify");
         }
     }
