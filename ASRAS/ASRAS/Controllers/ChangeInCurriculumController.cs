@@ -244,7 +244,7 @@ namespace ASRAS.Controllers
             return View("Modify");
         }
 
-        public ActionResult GenerateDocument(string documentabstract, string objectives,string outcomes, string fulltext, string references, string location)
+        public ActionResult GenerateDocument(string documentAbstract, string documentObjectives,string documentOutcomes, string documentMain, string documentReferences, string location)
         {
             Word.Application wordApplication;
             Word.Document wordDocument;
@@ -252,12 +252,12 @@ namespace ASRAS.Controllers
             wordApplication.Visible = false;
             wordDocument = wordApplication.Documents.Add();
 
-            wordDocument = DocumentGenerator.insertText(documentabstract, wordDocument);
-            wordDocument = DocumentGenerator.insertText(objectives, wordDocument);
-            wordDocument = DocumentGenerator.insertText(outcomes, wordDocument);
-            wordDocument = DocumentGenerator.insertText(fulltext, wordDocument);
-            wordDocument = DocumentGenerator.insertText(references, wordDocument);
-            DocumentGenerator.saveDocument(location, wordDocument);
+            wordDocument = DocumentGenerator.insertAbstract(wordDocument, documentAbstract);
+            wordDocument = DocumentGenerator.insertObjectives(wordDocument, documentObjectives);
+            wordDocument = DocumentGenerator.insertOutcomes(wordDocument, documentOutcomes);
+            wordDocument = DocumentGenerator.insertMain(wordDocument, documentMain);
+            wordDocument = DocumentGenerator.insertReferences(wordDocument, documentReferences);
+            DocumentGenerator.saveDocument(wordDocument, location);
 
             wordDocument.Close();
             wordApplication.Quit();
