@@ -114,6 +114,32 @@ namespace ASRAS.Models
             return document;
         }
 
+        public static Word.Document inserCustomTitle(Word.Document document, string title)
+        {
+            Word.Paragraph heading;
+            heading = document.Content.Paragraphs.Add();
+            heading.Range.Text = title.ToUpper();
+            heading.Range.Font.Bold = 1;
+            heading.Range.Font.Size = 14;
+            heading.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+            heading.Range.InsertParagraphAfter();
+
+            return document;
+        }
+
+        public static Word.Document insertCustomeText(Word.Document document, string text)
+        {
+            Word.Paragraph content;
+            content = document.Content.Paragraphs.Add();
+            content.Range.Text = text;
+            content.Range.Font.Bold = 0;
+            content.Range.Font.Size = 11;
+            content.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+            content.Range.InsertParagraphAfter();
+
+            return document;
+        }
+
         public static void saveDocument(Word.Document document, string location)
         {
             document.SaveAs2(location);

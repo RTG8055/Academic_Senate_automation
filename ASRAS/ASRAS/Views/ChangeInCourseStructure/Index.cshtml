@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Change In Course Structure";
+    var Uname = ViewBag.Uname;
+
+}
+
+<h2>Change In Course Structure</h2>
+<h3> Choose an option MR. @Uname</h3>
+<input id="introduce_new_course" type="button" value="Introduce New Course/Program" onclick="location.href='@Url.Action("Index", "ChangeInCourseStructure")'" />
+<input id="revise_course_structure" type="button" value="Revise Course Structure/Credit Distribution" />
+<input id="other" type="button" value="Other" />
