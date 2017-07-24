@@ -157,7 +157,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChangeInCourseStructureController.cs" />
     <Compile Include="Controllers\ChangeInCurriculumController.cs" />
+    <Compile Include="Controllers\ChangeInRegulationsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Models\CourseViewModal.cs" />
@@ -234,6 +236,8 @@
     <Content Include="Views\ChangeInCurriculum\CourseView.cshtml" />
     <Content Include="Views\ChangeInCurriculum\SemesterView.cshtml" />
     <Content Include="Views\ChangeInCurriculum\SubjectView.cshtml" />
+    <Content Include="Views\ChangeInRegulations\Index.cshtml" />
+    <Content Include="Views\ChangeInCourseStructure\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
