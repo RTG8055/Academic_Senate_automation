@@ -238,6 +238,7 @@
     <Content Include="Views\ChangeInCurriculum\SubjectView.cshtml" />
     <Content Include="Views\ChangeInRegulations\Index.cshtml" />
     <Content Include="Views\ChangeInCourseStructure\Index.cshtml" />
+    <Content Include="Views\ChangeInCurriculum\ReAllocate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
