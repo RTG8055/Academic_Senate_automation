@@ -22,7 +22,7 @@ namespace ASRAS.Models
         public static void saveDocument(string location, Word.Document document)
         {
             string fullPath = location;
-            document.SaveAs2(fullPath);
+            document.SaveAs(fullPath);
         }
     }
 }
