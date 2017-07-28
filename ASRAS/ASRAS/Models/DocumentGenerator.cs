@@ -142,7 +142,7 @@ namespace ASRAS.Models
 
         public static void saveDocument(Word.Document document, string location)
         {
-            document.SaveAs2(location);
+            document.SaveAs(location);
         }
     }
 }
