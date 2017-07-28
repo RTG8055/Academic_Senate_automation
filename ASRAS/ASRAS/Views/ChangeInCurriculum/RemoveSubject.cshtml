@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Remove Subject from Course";
+    //SelectList I = new SelectList(@TempData["Ins"].ToString(), @TempData["Ins"].ToString(), @TempData["Ins"].ToString());
+    List<String> names = new List<String>();
+    names = (List<String>)(ViewData["Ins"]);
+}
+
+<h2>Add New Subject - Page 1</h2>
+<h3>Fill the full form before submitting Mr. @ViewBag.Uname</h3>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[type=radio][name=Subjects]').change(function () {
+            var selectedInstituteID = $('#Institute_DropDownId option:selected').val();
+            var selectedDepartmentID = $('#Department_DropDownId option:selected').val();
+            var selectedCourseID = $('#Course_DropDownId option:selected').val();
+            var selectedSemesterID = $('#Semester_DropDownId option:selected').val();
+            var selectedSubtype = this.value;
+            if (this.value == 'Core') {
+                selectedSubtype = 1;
+            }
+            else if (this.value == 'PE') {
+                selectedSubtype = 2;
+            }
+            else if (this.value == 'OE') {
+                selectedSubtype = 3;
+            }
+            console.log(selectedInstituteID + " " + selectedDepartmentID + " " + selectedCourseID + " " + selectedSemesterID + " " + selectedSubtype);
+            $('#SubjectContainer').load('@Url.Action("SubjectView", "DropDown")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID + '&Sub_type=' + selectedSubtype);
+        });
+    });
+</script>
+<div id="InstituteContainer">
+    @Html.Action("InstituteView", "DropDown")
+</div>
+<br />
+<div id="DepartmentContainer">
+    @Html.Action("DepartmentView", "DropDown", new { InstituteID = 123 })
+</div>
+<br />
+<div id="CourseContainer">
+    @Html.Action("CourseView", "DropDown", new { InstituteID = 123, DeptID = 1 })
+</div>
+<br />
+<div id="SemesterContainer">
+    @Html.Action("SemesterView", "DropDown", new { InstituteID = 123, DeptID = 1, CourseID = 1 })
+</div>
+<br />
+<div id="SubjectType">
+    Core:<input type="radio" name="Subjects" value="1" /><br />
+    PE:<input type="radio" name="Subjects" value="2" /><br />
+    OE:<input type="radio" name="Subjects" value="3" /><br />
+</div>
+<br />
+<div id="SubjectContainer">
+    @Html.Action("SubjectView", "DropDown", new { InstituteId = 123, DeptID = 1, CourseID = 1, SemesterID = 1, Sub_type = 1 })
+</div>
