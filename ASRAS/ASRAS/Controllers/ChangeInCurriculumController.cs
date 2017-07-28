@@ -208,6 +208,23 @@ namespace ASRAS.Controllers
             }
             return View(svm);
         }
+        public static SemesterViewModal nsvm = new SemesterViewModal();
+
+        public ActionResult newSemesterView(Double? InstituteID, Double? DeptID, Double? CourseID)
+        {
+            nsvm.SemesterList.Clear();
+            if (InstituteID != 123 && DeptID != null && CourseID != null)
+            {
+                Institute i = All_ins2.Find(p => p.Ins_id == InstituteID);
+                Department d = i.Departments.Find(p => p.D_id == DeptID);
+                Course c = d.Courses.Find(p => p.C_id == CourseID);
+                foreach (Semester s in c.Semesters)
+                {
+                    if(s.S_id == )
+                    nsvm.SemesterList.Add(s);
+                }
+            }
+        }
         public static SubjectViewModal suvm = new SubjectViewModal();
         public ActionResult SubjectView(Double? InstituteID, Double? DeptID, Double? CourseID,Double? SemesterID, Double? Sub_type)
         {
@@ -260,6 +277,13 @@ namespace ASRAS.Controllers
             wordApplication.Quit();
 
             return View("Modify");
+        }
+
+        public ActionResult ReAllocate()
+        {
+            TempData["UserName4"] = TempData["UserName3"];
+            ViewBag.Uname = TempData["UserName3"];
+            return View("ReAllocate");
         }
     }
 }
