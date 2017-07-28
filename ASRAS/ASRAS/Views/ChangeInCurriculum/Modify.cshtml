@@ -26,24 +26,24 @@
                 selectedSubtype = 3;
             }
             console.log(selectedInstituteID + " " + selectedDepartmentID + " " + selectedCourseID + " " + selectedSemesterID + " " + selectedSubtype);
-            $('#SubjectContainer').load('@Url.Action("SubjectView")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID + '&Sub_type=' + selectedSubtype);
+            $('#SubjectContainer').load('@Url.Action("SubjectView", "DropDown")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID + '&Sub_type=' + selectedSubtype);
         });
     });
 </script>
 <div id="InstituteContainer">
-    @Html.Action("InstituteView")
+    @Html.Action("InstituteView", "DropDown")
 </div>
 <br />
 <div id="DepartmentContainer">
-    @Html.Action("DepartmentView", new { InstituteID = 123 })
+    @Html.Action("DepartmentView", "DropDown", new { InstituteID = 123 })
 </div>
 <br />
 <div id="CourseContainer">
-    @Html.Action("CourseView", new { InstituteID = 123, DeptID = 1 })
+    @Html.Action("CourseView", "DropDown", new { InstituteID = 123, DeptID = 1 })
 </div>
 <br />
 <div id="SemesterContainer">
-    @Html.Action("SemesterView", new { InstituteID = 123, DeptID = 1, CourseID = 1 })
+    @Html.Action("SemesterView", "DropDown", new { InstituteID = 123, DeptID = 1, CourseID = 1 })
 </div>
 <br />
 <div id="SubjectType">
@@ -53,7 +53,7 @@
 </div>
 <br />
 <div id="SubjectContainer">
-    @Html.Action("SubjectView", new { InstituteId = 123, DeptID = 1, CourseID = 1, SemesterID = 1, Sub_type = 1 })
+    @Html.Action("SubjectView", "DropDown", new { InstituteId = 123, DeptID = 1, CourseID = 1, SemesterID = 1, Sub_type = 1 })
 </div>
 
 @*<table>

@@ -160,6 +160,7 @@
     <Compile Include="Controllers\ChangeInCourseStructureController.cs" />
     <Compile Include="Controllers\ChangeInCurriculumController.cs" />
     <Compile Include="Controllers\ChangeInRegulationsController.cs" />
+    <Compile Include="Controllers\DropDownController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Models\CourseViewModal.cs" />
@@ -231,15 +232,17 @@
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\ChangeInCurriculum\Index.cshtml" />
     <Content Include="Views\ChangeInCurriculum\Modify.cshtml" />
-    <Content Include="Views\ChangeInCurriculum\InstituteView.cshtml" />
-    <Content Include="Views\ChangeInCurriculum\DepartmentView.cshtml" />
-    <Content Include="Views\ChangeInCurriculum\CourseView.cshtml" />
-    <Content Include="Views\ChangeInCurriculum\SemesterView.cshtml" />
-    <Content Include="Views\ChangeInCurriculum\SubjectView.cshtml" />
+    <Content Include="Views\DropDown\InstituteView.cshtml" />
+    <Content Include="Views\DropDown\DepartmentView.cshtml" />
+    <Content Include="Views\DropDown\CourseView.cshtml" />
+    <Content Include="Views\DropDown\SemesterView.cshtml" />
+    <Content Include="Views\DropDown\SubjectView.cshtml" />
     <Content Include="Views\ChangeInRegulations\Index.cshtml" />
     <Content Include="Views\ChangeInCourseStructure\Index.cshtml" />
     <Content Include="Views\ChangeInCurriculum\ReAllocate.cshtml" />
     <Content Include="Views\ChangeInCurriculum\AddNewSubject.cshtml" />
+    <Content Include="Views\ChangeInRegulations\ChangeTimeScheme.cshtml" />
+    <Content Include="Views\ChangeInCurriculum\RemoveSubject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

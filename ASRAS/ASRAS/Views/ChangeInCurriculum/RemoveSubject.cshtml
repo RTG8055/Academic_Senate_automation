@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Add New Subject";
+    ViewBag.Title = "Remove Subject from Course";
     //SelectList I = new SelectList(@TempData["Ins"].ToString(), @TempData["Ins"].ToString(), @TempData["Ins"].ToString());
     List<String> names = new List<String>();
     names = (List<String>)(ViewData["Ins"]);
@@ -26,7 +26,7 @@
                 selectedSubtype = 3;
             }
             console.log(selectedInstituteID + " " + selectedDepartmentID + " " + selectedCourseID + " " + selectedSemesterID + " " + selectedSubtype);
-            $('#SubjectContainer').load('@Url.Action("SubjectView","DropDown")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID + '&Sub_type=' + selectedSubtype);
+            $('#SubjectContainer').load('@Url.Action("SubjectView", "DropDown")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID + '&Sub_type=' + selectedSubtype);
         });
     });
 </script>
@@ -55,35 +55,3 @@
 <div id="SubjectContainer">
     @Html.Action("SubjectView", "DropDown", new { InstituteId = 123, DeptID = 1, CourseID = 1, SemesterID = 1, Sub_type = 1 })
 </div>
-
-<p>
-    Below sections are for development/debugging purposes only and will be modified before final deployment
-</p>
-<br />
-
-@using (Html.BeginForm("GenerateDocument", "ChangeInCurriculum"))
-{
-    <p>Abstract:</p>
-    <div id="abstractContainer">
-        <textarea name="documentabstract" id="documentabstract" rows="10" cols="500"></textarea>
-    </div>
-    <p>Objectives:</p>
-    <div id="objectivesContainer">
-        <textarea name="documentobjectives" id="objectives" rows="10" cols="500"></textarea>
-    </div>
-    <p>Outcomes:</p>
-    <div id="outcomesContainer">
-        <textarea name="documentoutcomes" id="outcomes" rows="10" cols="500"></textarea>
-    </div>
-    <p>References:</p>
-    <div id="referencesContainer">
-        <textarea name="documentreferences" id="references" rows="10" cols="500"></textarea>
-    </div>
-    <p>(for temporary use, enter full location to store document. Eg "C:/debugoutput/try.docx")</p>
-    <div id="locationContainer">
-        <textarea name="location" id="location" rows="10" cols="500"></textarea>
-    </div>
-    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("GenerateDocument", "ChangeInCurriculum")'">
-        Generate Document
-    </button>
-}
