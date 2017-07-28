@@ -157,12 +157,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChangeInCourseStructureController.cs" />
     <Compile Include="Controllers\ChangeInCurriculumController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ChangeInRegulationsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Models\CourseViewModal.cs" />
+    <Compile Include="Models\DepartmentViewModal.cs" />
+    <Compile Include="Models\DocumentGenerator.cs" />
     <Compile Include="Models\Institute.cs" />
     <Compile Include="Models\InstituteRepository.cs" />
+    <Compile Include="Models\InstituteViewModal.cs" />
+    <Compile Include="Models\SemesterViewModal.cs" />
+    <Compile Include="Models\SubjectViewModal.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -220,13 +227,18 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\ChangeInCurriculum\Index.cshtml" />
     <Content Include="Views\ChangeInCurriculum\Modify.cshtml" />
+    <Content Include="Views\ChangeInCurriculum\InstituteView.cshtml" />
+    <Content Include="Views\ChangeInCurriculum\DepartmentView.cshtml" />
+    <Content Include="Views\ChangeInCurriculum\CourseView.cshtml" />
+    <Content Include="Views\ChangeInCurriculum\SemesterView.cshtml" />
+    <Content Include="Views\ChangeInCurriculum\SubjectView.cshtml" />
+    <Content Include="Views\ChangeInRegulations\Index.cshtml" />
+    <Content Include="Views\ChangeInCourseStructure\Index.cshtml" />
+    <Content Include="Views\ChangeInCurriculum\ReAllocate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -248,6 +260,35 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

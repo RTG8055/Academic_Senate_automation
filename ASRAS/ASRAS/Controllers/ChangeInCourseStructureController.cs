@@ -6,12 +6,11 @@ using System.Web.Mvc;
 
 namespace ASRAS.Controllers
 {
-    public class MainController : Controller
+    public class ChangeInCourseStructureController : Controller
     {
+        // GET: ChangeInCourseStructure
         public ActionResult Index()
         {
-            TempData["UserName2"] = TempData["UserName"];
-            ViewBag.Uname = TempData["UserName"];
             return View();
         }
     }

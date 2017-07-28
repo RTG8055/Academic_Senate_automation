@@ -8,6 +8,10 @@
     <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.intellisense.js"></script>
 </head>
 
 <body>
@@ -37,8 +41,8 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a onclick="location.href='@Url.Action("Index", "ChangeInCurriculum")'">Change in Curriculum</a></li>
-                            <li><a onclick="location.href='@Url.Action("Index", "ChangeInCurriculum")'">Change in Regulations</a></li>
-                            <li><a onclick="location.href='@Url.Action("Index", "ChangeInCurriculum")'">Change in Course Structure</a></li>
+                            <li><a onclick="location.href='@Url.Action("Index", "ChangeInRegulations")'">Change in Regulations</a></li>
+                            <li><a onclick="location.href='@Url.Action("Index", "ChangeInCourseStructure")'">Change in Course Structure</a></li>
                         </ul>
                     </li>
                     <li>

@@ -1,0 +1,32 @@
+﻿
+@model ASRAS.Models.SemesterViewModal
+
+@{
+    Layout = null;
+}
+
+@Html.DropDownListFor(p => p.selectedSemesterID,
+                          Model.SemesterIEnum,
+                          "Select a Semester",
+                          new
+                          {
+                              @id = "Semester_DropDownId",
+                              @class = "Semester_DropDownClass"
+                          })
+
+<script type="text/javascript">
+    $(function () {
+        $('#Semester_DropDownId').change(function () {
+            var selectedInstituteID = $('#Institute_DropDownId option:selected').val();
+            var selectedDepartmentID = $('#Department_DropDownId option:selected').val();
+            var selectedCourseID = $('#Course_DropDownId option:selected').val();
+
+            var selectedSemesterID = this.value;
+
+            //$('#SemesterContainer').load('Url.Action("SemesterView")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID);
+            
+            $('#SubjectContainer').load('@Url.Action("SubjectView")');
+            $('input[name="Subjects"').attr('checked', false);
+        });
+    });
+</script>

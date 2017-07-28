@@ -1,0 +1,25 @@
+﻿
+@model ASRAS.Models.DepartmentViewModal
+
+@{
+    Layout = null;
+}
+
+@Html.DropDownListFor(p => p.SelectedDepartmentID,
+    Model.DepartmentIEnum, 
+    "Select Department",
+    new { @id = "Department_DropDownId", @class = "Department_DropDownClass"})
+
+<script type="text/javascript">
+    $(function () {
+        $('#Department_DropDownId').change(function () {
+            var selectedInstituteId = $('#Institute_DropDownId option:selected').val();
+            var selectedDepartmentId = this.value;
+            $('#CourseContainer').load('@Url.Action("CourseView")?InstituteID=' + selectedInstituteId + '&DeptID=' + selectedDepartmentId);
+
+            $('#SemesterContainer').load('@Url.Action("SemesterView")');
+            $('#SubjectContainer').load('@Url.Action("SubjectView")');
+            $('input[name="Subjects"').attr('checked', false);
+        });
+    });
+</script>

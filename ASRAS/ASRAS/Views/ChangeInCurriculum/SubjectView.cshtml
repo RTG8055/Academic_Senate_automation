@@ -1,0 +1,14 @@
+﻿@model ASRAS.Models.SubjectViewModal
+
+@{
+    Layout = null;
+}
+
+@Html.DropDownListFor(p => p.selectedSubjectID,
+                          Model.SubjectIEnum,
+                          "Select a Subject",
+                          new
+                          {
+                              @id = "Subject_DropDownId",
+                              @class = "Subject_DropDownClass"
+                          })
