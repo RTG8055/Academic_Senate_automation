@@ -244,6 +244,13 @@ namespace ASRAS.Controllers
             return View("Modify");
         }
 
+        public ActionResult AddNewSubject()
+        {
+            TempData["UserName4"] = TempData["UserName3"];
+            ViewBag.Uname = TempData["UserName3"];
+            return View("AddNewSubject");
+        }
+
         public ActionResult GenerateDocument(string documentAbstract, string documentObjectives,string documentOutcomes, string documentMain, string documentReferences, string location)
         {
             Word.Application wordApplication;
