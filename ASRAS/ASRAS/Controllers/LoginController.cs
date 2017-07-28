@@ -18,9 +18,16 @@ namespace ASRAS.Controllers
     {
         protected UserRepository _repositoryUser;
 
+        protected void SetLayout()
+        {
+            ViewBag.Layout = "~/Views/Shared/_ALayout.cshtml";
+            return;
+        }
+
         public LoginController()
         {
-            _repositoryUser= new UserRepository();
+            SetLayout();
+            _repositoryUser = new UserRepository();
         }
           
         public ActionResult Login()

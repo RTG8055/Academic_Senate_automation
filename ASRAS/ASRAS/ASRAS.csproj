@@ -239,6 +239,8 @@
     <Content Include="Views\ChangeInRegulations\Index.cshtml" />
     <Content Include="Views\ChangeInCourseStructure\Index.cshtml" />
     <Content Include="Views\ChangeInCurriculum\ReAllocate.cshtml" />
+    <Content Include="Views\Shared\_ALayout.cshtml" />
+    <Content Include="Views\Login\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
