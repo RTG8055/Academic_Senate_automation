@@ -243,6 +243,12 @@
     <Content Include="Views\ChangeInCurriculum\AddNewSubject.cshtml" />
     <Content Include="Views\ChangeInRegulations\ChangeTimeScheme.cshtml" />
     <Content Include="Views\ChangeInCurriculum\RemoveSubject.cshtml" />
+    <Content Include="Views\ChangeInRegulations\ChangeAssessmentScheme.cshtml" />
+    <Content Include="Views\ChangeInRegulations\ChangeNomenclature.cshtml" />
+    <Content Include="Views\ChangeInRegulations\ChangePromotionCriteria.cshtml" />
+    <Content Include="Views\ChangeInRegulations\ChangeEligibilityCriteria.cshtml" />
+    <Content Include="Views\ChangeInCourseStructure\IntroduceNewCourse.cshtml" />
+    <Content Include="Views\ChangeInCourseStructure\ReviseCourseStructure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

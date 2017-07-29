@@ -1,7 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Change Time Scheme";
-    //SelectList I = new SelectList(@TempData["Ins"].ToString(), @TempData["Ins"].ToString(), @TempData["Ins"].ToString());
+    ViewBag.Title = "Change Assessment Pattern";
     List<String> names = new List<String>();
     names = (List<String>)(ViewData["Ins"]);
 }
@@ -41,7 +40,6 @@
 <div id="CourseContainer">
     @Html.Action("CourseView", "DropDown", new { InstituteID = 123, DeptID = 1 })
 </div>
-
 <p>
     Below sections are for development/debugging purposes only and will be modified before final deployment
 </p>

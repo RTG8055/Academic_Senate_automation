@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Change Time Scheme";
+    ViewBag.Title = "Change Nomenclature";
     //SelectList I = new SelectList(@TempData["Ins"].ToString(), @TempData["Ins"].ToString(), @TempData["Ins"].ToString());
     List<String> names = new List<String>();
     names = (List<String>)(ViewData["Ins"]);
@@ -49,13 +49,17 @@
 
 @using (Html.BeginForm("GenerateDocument", "ChangeInRegulations"))
 {
-    <p>Present Evaluation Split:</p>
+    <p>Present Nomenclature:</p>
     <div id="presentEvaluationContainer">
-        <textarea name="documentPresentEvaluation" id="documentabstract" rows="10" cols="500"></textarea>
+        <textarea name="documentPresentEvaluation" rows="10" cols="500"></textarea>
     </div>
-    <p>Proposed Evaluation Split:</p>
+    <p>New Nomenclature:</p>
     <div id="proposedEvaluationContainer">
-        <textarea name="documentProposedEvaluation" id="objectives" rows="10" cols="500"></textarea>
+        <textarea name="documentProposedEvaluation" rows="10" cols="500"></textarea>
+    </div>
+    <p>With Effect From:</p>
+    <div id="withEffectFromContainer">
+        <textarea name="documentWithEffectFrom" rows="10" cols="500"></textarea>
     </div>
     <div id="locationContainer">
         <textarea name="location" id="location" rows="10" cols="500"></textarea>

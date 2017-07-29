@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Change Time Scheme";
+    ViewBag.Title = "Change Eligibility Criteria";
     //SelectList I = new SelectList(@TempData["Ins"].ToString(), @TempData["Ins"].ToString(), @TempData["Ins"].ToString());
     List<String> names = new List<String>();
     names = (List<String>)(ViewData["Ins"]);
@@ -49,13 +49,13 @@
 
 @using (Html.BeginForm("GenerateDocument", "ChangeInRegulations"))
 {
-    <p>Present Evaluation Split:</p>
-    <div id="presentEvaluationContainer">
-        <textarea name="documentPresentEvaluation" id="documentabstract" rows="10" cols="500"></textarea>
+    <p>Present Eligibility Criteria:</p>
+    <div id="presentEligibilityContainer">
+        <textarea name="documentPresentEligibility" rows="10" cols="500"></textarea>
     </div>
-    <p>Proposed Evaluation Split:</p>
-    <div id="proposedEvaluationContainer">
-        <textarea name="documentProposedEvaluation" id="objectives" rows="10" cols="500"></textarea>
+    <p>Proposed Eligibility Criteria:</p>
+    <div id="proposedEligibilityContainer">
+        <textarea name="documentProposedEligibility" rows="10" cols="500"></textarea>
     </div>
     <div id="locationContainer">
         <textarea name="location" id="location" rows="10" cols="500"></textarea>
