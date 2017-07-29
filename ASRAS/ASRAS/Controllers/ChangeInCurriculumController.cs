@@ -132,7 +132,18 @@ namespace ASRAS.Controllers
             ViewBag.Uname = TempData["UserName2"];
             return View();
         }
-
+        public ActionResult ReAllocate()
+        {
+            TempData["UserName4"] = TempData["UserName3"];
+            ViewBag.Uname = TempData["UserName3"];
+            return View("ReAllocate");
+        }
+        public ActionResult newSemesterView()
+        {
+            TempData["UserName4"] = TempData["UserName3"];
+            ViewBag.Uname = TempData["UserName3"];
+            return View("newSemesterView");
+        }
         //public static InstituteViewModal ivm = new InstituteViewModal(); 
         //public ActionResult InstituteView()
         //{
