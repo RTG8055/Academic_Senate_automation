@@ -13,8 +13,10 @@ namespace ASRAS.Models
         public ObjectId Id { get; set; }
         public Double Ins_id { get; set; }
         public string Name { get; set; }
+        public string ShortName { get; set; }
         public List<Department> Departments { get; set; }
     }
+
     public class Department
     {
         public Department()

@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Page1";
+    //SelectList I = new SelectList(@TempData["Ins"].ToString(), @TempData["Ins"].ToString(), @TempData["Ins"].ToString());
+    List<String> names = new List<String>();
+    names = (List<String>)(ViewData["Ins"]);
+}
+
+<h2>Introduce New Course</h2>
+<h3>Fill the full form before submitting Mr. @ViewBag.Uname</h3>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[type=radio][name=Subjects]').change(function () {
+            var selectedInstituteID = $('#Institute_DropDownId option:selected').val();
+            var selectedDepartmentID = $('#Department_DropDownId option:selected').val();
+            var selectedCourseID = $('#Course_DropDownId option:selected').val();
+            var selectedSemesterID = $('#Semester_DropDownId option:selected').val();
+            var selectedSubtype = this.value;
+            if (this.value == 'Core') {
+                selectedSubtype = 1;
+            }
+            else if (this.value == 'PE') {
+                selectedSubtype = 2;
+            }
+            else if (this.value == 'OE') {
+                selectedSubtype = 3;
+            }
+            console.log(selectedInstituteID + " " + selectedDepartmentID + " " + selectedCourseID + " " + selectedSemesterID + " " + selectedSubtype);
+            $('#SubjectContainer').load('@Url.Action("SubjectView", "DropDown")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID + '&Sub_type=' + selectedSubtype);
+        });
+    });
+</script>
+<div id="InstituteContainer">
+    @Html.Action("InstituteView", "DropDown")
+</div>
+<br />
+<div id="DepartmentContainer">
+    @Html.Action("DepartmentView", "DropDown", new { InstituteID = 123 })
+</div>
+
+<p>
+    Below sections are for development/debugging purposes only and will be modified before final deployment
+</p>
+<br />
+
+@using (Html.BeginForm("GenerateDocument", "ChangeInCurriculum"))
+{
+    <p>Proposed Course Name:</p>
+    <div id="proposedCourseNameContainer">
+        <textarea name="documentProposedCourseName" rows="10" cols="500"></textarea>
+    </div>
+    <p>Admission Capacity:</p>
+    <div id="admissionCapacityContainer">
+        <textarea name="documentAdmissionCapacity" rows="10" cols="500"></textarea>
+    </div>
+    <p>Proposed Curriculum:</p>
+    <div id="proposedCurriculumContainer">
+        <textarea name="documentProposedCurriculum" rows="20" cols="500"></textarea>
+    </div>
+    <p>(for temporary use, enter full location to store document. Eg "C:/debugoutput/try.docx")</p>
+    <div id="locationContainer">
+        <textarea name="location" id="location" rows="10" cols="500"></textarea>
+    </div>
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("GenerateDocument", "ChangeInCourseStructure")'">
+        Generate Document
+    </button>
+}
