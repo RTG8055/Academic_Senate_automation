@@ -6,6 +6,9 @@ using System.Linq;
 using System.Web;
 using Word = Microsoft.Office.Interop.Word;
 using System.Web.Mvc;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDB.Bson.Serialization;
 
 namespace ASRAS.Controllers
 {
@@ -66,6 +69,21 @@ namespace ASRAS.Controllers
             wordApplication.Quit();
 
             return View("Modify");
+        }
+
+        public void insertIntoDatabase(string documentAbstract, string documentObjectives, string documentOutcomes, string documentMain, string documentReferences)
+        {
+            Proposal proposal = new Proposal();
+
+            proposal.Abstract = documentAbstract;
+            proposal.Objectives = documentObjectives;
+            proposal.Outcome = documentOutcomes;
+            proposal.Full_syll = documentMain;
+            proposal.References = documentReferences;
+            proposal.P_id = 4;
+
+            ProposalRepository proposalRepository = new ProposalRepository();
+            proposalRepository.InsertProposal(proposal);
         }
     }
 }

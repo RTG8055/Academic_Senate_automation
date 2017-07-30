@@ -70,7 +70,7 @@
 </p>
 <br />
 
-@using (Html.BeginForm("GenerateDocument", "ChangeInCurriculum"))
+@using (Html.BeginForm("insertIntoDatabase", "ChangeInCurriculum"))
 {
     <p>Abstract:</p>
     <div id="abstractContainer">
@@ -96,7 +96,7 @@
     <div id="locationContainer">
         <textarea name="location" id="location" rows="10" cols="500"></textarea>
     </div>
-    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("GenerateDocument", "ChangeInCurriculum")'">
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "ChangeInCurriculum")'">
         Generate Document
     </button>
 }
