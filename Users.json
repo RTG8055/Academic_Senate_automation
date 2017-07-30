@@ -1,0 +1,32 @@
+{
+	"_id" : ObjectId("5960c9965e91dd63cc25192f"),
+	"Designation" : "HOD",
+	"Institute" : "MIT",
+	"Name" : "Rahul",
+	"Pass" : "12345",
+	"UserName" : "RAG"
+},
+{
+	"_id" : ObjectId("5960e65c5e91dd6a88ecb6b1"),
+	"Designation" : "HOD",
+	"Institute" : "MIT",
+	"Name" : "Yash",
+	"Pass" : "12345",
+	"UserName" : "YMAl"
+},
+{
+	"_id" : ObjectId("5960eb0a9b8d701fb0a4e63a"),
+	"Designation" : "Director",
+	"Institute" : "MIT",
+	"Name" : "Robby",
+	"Pass" : "12345678",
+	"UserName" : "RSingh"
+},
+{
+	"_id" : ObjectId("597da4273f3f832394453fb2"),
+	"Designation" : "Chairman",
+	"Institute" : "MIT",
+	"Name" : "Shourya",
+	"Pass" : "12345",
+	"UserName" : "SAG"
+},
