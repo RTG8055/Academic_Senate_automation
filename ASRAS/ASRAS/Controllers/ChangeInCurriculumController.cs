@@ -33,6 +33,13 @@ namespace ASRAS.Controllers
             return View("AddNewSubject");
         }
 
+        public ActionResult ReAllocate()
+        {
+            TempData["UserName4"] = TempData["UserName3"];
+            ViewBag.Uname = TempData["UserName3"];
+            return View("ReAllocate");
+        }
+
         public ActionResult RemoveSubject()
         {
             TempData["UserName4"] = TempData["UserName3"];

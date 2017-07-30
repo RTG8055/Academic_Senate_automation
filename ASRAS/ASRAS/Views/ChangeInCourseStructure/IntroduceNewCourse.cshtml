@@ -6,7 +6,7 @@
     names = (List<String>)(ViewData["Ins"]);
 }
 
-<h2>Modify Syllabus - Page 1</h2>
+<h2>Introduce New Course</h2>
 <h3>Fill the full form before submitting Mr. @ViewBag.Uname</h3>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -37,68 +37,7 @@
 <div id="DepartmentContainer">
     @Html.Action("DepartmentView", "DropDown", new { InstituteID = 123 })
 </div>
-<br />
-<div id="CourseContainer">
-    @Html.Action("CourseView", "DropDown", new { InstituteID = 123, DeptID = 1 })
-</div>
-<br />
-<div id="SemesterContainer">
-    @Html.Action("SemesterView", "DropDown", new { InstituteID = 123, DeptID = 1, CourseID = 1 })
-</div>
-<br />
-<div id="SubjectType">
-    Core:<input type="radio" name="Subjects" value="1" /><br />
-    PE:<input type="radio" name="Subjects" value="2" /><br />
-    OE:<input type="radio" name="Subjects" value="3" /><br />
-</div>
-<br />
-<div id="SubjectContainer">
-    @Html.Action("SubjectView", "DropDown", new { InstituteId = 123, DeptID = 1, CourseID = 1, SemesterID = 1, Sub_type = 1 })
-</div>
 
-@*<table>
-        <tr>
-            <th>Institute</th>
-            <th>Department</th>
-            <th>Course</th>
-            <th>Semester</th>
-            <th>Subject</th>
-        </tr>
-        <tr>
-            <td>
-                <div id="InstituteContainer">
-                    @Html.Action("InstituteView")
-                </div>
-            </td>
-            <td>
-                <div id="DepartmentContainer">
-                    @Html.Action("DepartmentView", new { InstituteID = 123 })
-                </div>
-            </td>
-            <td>
-                <div id="CourseContainer">
-                    @Html.Action("CourseView", new { InstituteID = 123, DeptID = 1 })
-                </div>
-            </td>
-            <td>
-                <div id="SemesterContainer">
-                    @Html.Action("SemesterView",new { InstituteID = 123, DeptID = 1, CourseID = 1})
-                </div>
-            </td>
-            <td>
-                <div id="SubjectType">
-                    Core:<input type="radio" name="Subjects" value="1" /><br />
-                    PE:<input type="radio" name="Subjects" value="2" /><br />
-                    OE:<input type="radio" name="Subjects" value="3" /><br />
-                </div>
-            </td>
-            <td>
-                <div id="SubjectContainer">
-                    @Html.Action("SubjectView" ,new { InstituteId = 123, DeptID = 1, CourseID = 1,SemesterID=1, Sub_type = 1 })
-                </div>
-            </td>
-        </tr>
-    </table>*@
 <p>
     Below sections are for development/debugging purposes only and will be modified before final deployment
 </p>
@@ -106,31 +45,23 @@
 
 @using (Html.BeginForm("GenerateDocument", "ChangeInCurriculum"))
 {
-    <p>Abstract:</p>
-    <div id="abstractContainer">
-        <textarea name="documentabstract" id="documentabstract" rows="10" cols="500"></textarea>
+    <p>Proposed Course Name:</p>
+    <div id="proposedCourseNameContainer">
+        <textarea name="documentProposedCourseName" rows="10" cols="500"></textarea>
     </div>
-    <p>Objectives:</p>
-    <div id="objectivesContainer">
-        <textarea name="documentobjectives" id="objectives" rows="10" cols="500"></textarea>
+    <p>Admission Capacity:</p>
+    <div id="admissionCapacityContainer">
+        <textarea name="documentAdmissionCapacity" rows="10" cols="500"></textarea>
     </div>
-    <p>Outcomes:</p>
-    <div id="outcomesContainer">
-        <textarea name="documentoutcomes" id="outcomes" rows="10" cols="500"></textarea>
-    </div>
-    <p>Full Text:</p>
-    <div id="fulltextContainer">
-        <textarea name="documentmain" id="fulltext" rows="20" cols="500"></textarea>
-    </div>
-    <p>References:</p>
-    <div id="referencesContainer">
-        <textarea name="documentreferences" id="references" rows="10" cols="500"></textarea>
+    <p>Proposed Curriculum:</p>
+    <div id="proposedCurriculumContainer">
+        <textarea name="documentProposedCurriculum" rows="20" cols="500"></textarea>
     </div>
     <p>(for temporary use, enter full location to store document. Eg "C:/debugoutput/try.docx")</p>
     <div id="locationContainer">
         <textarea name="location" id="location" rows="10" cols="500"></textarea>
     </div>
-    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("GenerateDocument", "ChangeInCurriculum")'">
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("GenerateDocument", "ChangeInCourseStructure")'">
         Generate Document
     </button>
 }
