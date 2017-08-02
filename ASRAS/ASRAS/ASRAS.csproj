@@ -297,6 +297,7 @@
     <Content Include="Views\ChangeInRegulations\ChangeEligibilityCriteria.cshtml" />
     <Content Include="Views\ChangeInRegulations\ChangeNomenclature.cshtml" />
     <Content Include="Views\ChangeInRegulations\ChangePromotionCriteria.cshtml" />
+    <Content Include="Views\ChangeInCurriculum\Preview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

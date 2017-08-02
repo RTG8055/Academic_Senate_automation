@@ -70,8 +70,7 @@
 </p>
 <br />
 
-@using (Html.BeginForm("insertIntoDatabase", "ChangeInCurriculum"))
-{
+<form>
     <p>Abstract:</p>
     <div id="abstractContainer">
         <textarea name="documentabstract" id="documentabstract" rows="10" cols="500"></textarea>
@@ -92,11 +91,14 @@
     <div id="referencesContainer">
         <textarea name="documentreferences" id="references" rows="10" cols="500"></textarea>
     </div>
-    <p>(for temporary use, enter full location to store document. Eg "C:/debugoutput/try.docx")</p>
+    <p>(for temporary use, enter full location to store document. Eg "C:/debugging/try.docx")</p>
     <div id="locationContainer">
         <textarea name="location" id="location" rows="10" cols="500"></textarea>
     </div>
-    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "ChangeInCurriculum")'">
-        Generate Document
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("Preview", "ChangeInCurriculum")'">
+        Preview
     </button>
-}
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "ChangeInCurriculum")'">
+        Submit
+    </button>
+</form>
