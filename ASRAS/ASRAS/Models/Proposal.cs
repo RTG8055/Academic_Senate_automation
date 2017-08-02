@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASRAS.Models
 {
     public class Proposal
     {
         public Double P_id { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DateofBOS { get; set; }
         public string UploadLink { get; set; }
         public string Index { get; set; }

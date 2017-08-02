@@ -13,5 +13,21 @@ namespace ASRAS.Controllers
         {
             return View();
         }
+
+        public ActionResult IntroduceNewCourse()
+        {
+            TempData["UserName3"] = TempData["UserName2"];
+            ViewData["Uname"] = TempData["UserName2"];
+            ViewBag.Uname = TempData["UserName2"];
+            return View();
+        }
+
+        public ActionResult ReviseCourseStructure()
+        {
+            TempData["UserName3"] = TempData["UserName2"];
+            ViewData["Uname"] = TempData["UserName2"];
+            ViewBag.Uname = TempData["UserName2"];
+            return View();
+        }
     }
 }

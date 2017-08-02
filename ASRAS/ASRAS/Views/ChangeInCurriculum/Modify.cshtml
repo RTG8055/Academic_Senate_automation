@@ -1,4 +1,5 @@
-﻿
+﻿@model ASRAS.Models.Proposal  
+
 @{
     ViewBag.Title = "Page1";
     //SelectList I = new SelectList(@TempData["Ins"].ToString(), @TempData["Ins"].ToString(), @TempData["Ins"].ToString());
@@ -8,6 +9,7 @@
 
 <h2>Modify Syllabus - Page 1</h2>
 <h3>Fill the full form before submitting Mr. @ViewBag.Uname</h3>
+ 
 <script type="text/javascript">
     $(document).ready(function () {
         $('input[type=radio][name=Subjects]').change(function () {
@@ -30,6 +32,13 @@
         });
     });
 </script>
+<div class="form-group">
+    @Html.LabelFor(model => model.DateofBOS, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.DateofBOS, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee Date Of Birth" } })
+        @Html.ValidationMessageFor(model => model.DateofBOS, "", new { @class = "text-danger" })
+    </div>
+</div> 
 <div id="InstituteContainer">
     @Html.Action("InstituteView", "DropDown")
 </div>
@@ -56,55 +65,12 @@
     @Html.Action("SubjectView", "DropDown", new { InstituteId = 123, DeptID = 1, CourseID = 1, SemesterID = 1, Sub_type = 1 })
 </div>
 
-@*<table>
-    <tr>
-        <th>Institute</th>
-        <th>Department</th>
-        <th>Course</th>
-        <th>Semester</th>
-        <th>Subject</th>
-    </tr>
-    <tr>
-        <td>
-            <div id="InstituteContainer">
-                @Html.Action("InstituteView")
-            </div>
-        </td>
-        <td>
-            <div id="DepartmentContainer">
-                @Html.Action("DepartmentView", new { InstituteID = 123 })
-            </div>
-        </td>
-        <td>
-            <div id="CourseContainer">
-                @Html.Action("CourseView", new { InstituteID = 123, DeptID = 1 })
-            </div>
-        </td>
-        <td>
-            <div id="SemesterContainer">
-                @Html.Action("SemesterView",new { InstituteID = 123, DeptID = 1, CourseID = 1})
-            </div>
-        </td>
-        <td>
-            <div id="SubjectType">
-                Core:<input type="radio" name="Subjects" value="1" /><br />
-                PE:<input type="radio" name="Subjects" value="2" /><br />
-                OE:<input type="radio" name="Subjects" value="3" /><br />
-            </div>
-        </td>
-        <td>
-            <div id="SubjectContainer">
-                @Html.Action("SubjectView" ,new { InstituteId = 123, DeptID = 1, CourseID = 1,SemesterID=1, Sub_type = 1 })
-            </div>
-        </td>
-    </tr>
-</table>*@
 <p>
     Below sections are for development/debugging purposes only and will be modified before final deployment
 </p>
 <br />
 
-@using (Html.BeginForm("GenerateDocument", "ChangeInCurriculum"))
+@using (Html.BeginForm("insertIntoDatabase", "ChangeInCurriculum"))
 {
     <p>Abstract:</p>
     <div id="abstractContainer">
@@ -130,7 +96,7 @@
     <div id="locationContainer">
         <textarea name="location" id="location" rows="10" cols="500"></textarea>
     </div>
-    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("GenerateDocument", "ChangeInCurriculum")'">
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "ChangeInCurriculum")'">
         Generate Document
     </button>
 }

@@ -6,9 +6,9 @@
 
 <h2>Change In Regulations</h2>
 <h3> Choose an option MR. @Uname</h3>
-<input id="change_time_scheme" type="button" value="Change Time Scheme" onclick="location.href='@Url.Action("Index", "ChangeInRegulations")'" />
-<input id="change_assessment_pattern" type="button" value="Change Assessment Pattern" />
-<input id="change_nomenclature" type="button" value="Change Nomenclature" />
-<input id="change_promotion_criteria" type="button" value="Change Carry-over Rules/Promotion Criteria" />
-<input id="change_eligibility_criteria" type="button" value="Change Eligibility Criteria" />
+<input id="change_time_scheme" type="button" value="Change Time Scheme" onclick="location.href='@Url.Action("ChangeTimeScheme", "ChangeInRegulations")'" />
+<input id="change_assessment_pattern" type="button" value="Change Assessment Pattern"  onclick="location.href='@Url.Action("ChangeAssessmentScheme", "ChangeInRegulations")'" />
+<input id="change_nomenclature" type="button" value="Change Nomenclature"  onclick="location.href='@Url.Action("ChangeNomenclature", "ChangeInRegulations")'" />
+<input id="change_promotion_criteria" type="button" value="Change Carry-over Rules/Promotion Criteria"  onclick="location.href='@Url.Action("ChangePromotionCriteria", "ChangeInRegulations")'" />
+<input id="change_eligibility_criteria" type="button" value="Change Eligibility Criteria"  onclick="location.href='@Url.Action("ChangeEligibilityCriteria", "ChangeInRegulations")'" />
 <input id="other" type="button" value="Other" />
