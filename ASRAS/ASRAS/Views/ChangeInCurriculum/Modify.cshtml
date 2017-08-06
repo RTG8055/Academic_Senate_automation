@@ -32,6 +32,9 @@
         });
     });
 </script>
+
+@using (Html.BeginForm("Preview", "Preview"))
+{
 <div class="form-group">
     @Html.LabelFor(model => model.DateofBOS, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
@@ -69,9 +72,6 @@
     Below sections are for development/debugging purposes only and will be modified before final deployment
 </p>
 <br />
-
-@using (Html.BeginForm("insertIntoDatabase", "ChangeInCurriculum"))
-{
     <p>Abstract:</p>
     <div id="abstractContainer">
         <textarea name="documentabstract" id="documentabstract" rows="10" cols="500"></textarea>
@@ -92,11 +92,14 @@
     <div id="referencesContainer">
         <textarea name="documentreferences" id="references" rows="10" cols="500"></textarea>
     </div>
-    <p>(for temporary use, enter full location to store document. Eg "C:/debugoutput/try.docx")</p>
+    <p>(for temporary use, enter full location to store document. Eg "C:/debugging/try.docx")</p>
     <div id="locationContainer">
         <textarea name="location" id="location" rows="10" cols="500"></textarea>
     </div>
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("Preview", "Preview")'">
+        Preview
+    </button>
     <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "ChangeInCurriculum")'">
-        Generate Document
+        Submit
     </button>
 }
