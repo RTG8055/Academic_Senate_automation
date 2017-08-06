@@ -9,8 +9,10 @@ namespace ASRAS.Models
     public class Proposal
     {
         public Double P_id { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime DateofBOS { get; set; }
+
         public string UploadLink { get; set; }
         public string Index { get; set; }
         public string Title { get; set; }

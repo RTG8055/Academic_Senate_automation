@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using Word = Microsoft.Office.Interop.Word;
 using System.Web.Mvc;
+using System.Web.UI;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Bson.Serialization;
@@ -80,7 +81,6 @@ namespace ASRAS.Controllers
             proposal.Outcome = documentOutcomes;
             proposal.Full_syll = documentMain;
             proposal.References = documentReferences;
-            proposal.P_id = 4;
 
             ProposalRepository proposalRepository = new ProposalRepository();
             proposalRepository.InsertProposal(proposal);
