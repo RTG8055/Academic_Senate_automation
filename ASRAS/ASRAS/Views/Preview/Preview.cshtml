@@ -1,0 +1,28 @@
+﻿@model ASRAS.Models.Proposal
+
+@{ 
+    var data = (ASRAS.Models.Proposal)(TempData["DataSet"]);
+
+}
+<div id="contentFrame"></div>
+<script>
+    var arrayObjs = @ASRAS.Models.JavaScriptConverter.SerializeObject(data);
+    var listOfKeys = Object.keys(arrayObjs);
+    console.log(Object.keys(arrayObjs));
+    for (i = 0;i < 36;i++)
+    {
+        if (arrayObjs[listOfKeys[i]] != undefined) {
+            var header = document.createElement('h1');
+            console.log("Header: " + listOfKeys[i]);
+            header.innerText = listOfKeys[i].toUpperCase();
+
+            var content = document.createElement('p');
+            console.log("Content: " + arrayObjs[listOfKeys[i]]);
+            content.style.fontSize = 14;
+            content.innerText = arrayObjs[listOfKeys[i]];
+
+            header.appendChild(content);
+            document.getElementById('contentFrame').appendChild(header);
+        }
+    }
+</script>

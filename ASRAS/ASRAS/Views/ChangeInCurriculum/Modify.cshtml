@@ -32,6 +32,9 @@
         });
     });
 </script>
+
+@using (Html.BeginForm("Preview", "Preview"))
+{
 <div class="form-group">
     @Html.LabelFor(model => model.DateofBOS, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
@@ -69,8 +72,6 @@
     Below sections are for development/debugging purposes only and will be modified before final deployment
 </p>
 <br />
-
-<form>
     <p>Abstract:</p>
     <div id="abstractContainer">
         <textarea name="documentabstract" id="documentabstract" rows="10" cols="500"></textarea>
@@ -95,10 +96,10 @@
     <div id="locationContainer">
         <textarea name="location" id="location" rows="10" cols="500"></textarea>
     </div>
-    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("Preview", "ChangeInCurriculum")'">
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("Preview", "Preview")'">
         Preview
     </button>
     <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "ChangeInCurriculum")'">
         Submit
     </button>
-</form>
+}

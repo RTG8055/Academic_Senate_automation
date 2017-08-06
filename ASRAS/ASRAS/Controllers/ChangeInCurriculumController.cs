@@ -81,20 +81,9 @@ namespace ASRAS.Controllers
             proposal.Outcome = documentOutcomes;
             proposal.Full_syll = documentMain;
             proposal.References = documentReferences;
-            proposal.P_id = 4;
 
             ProposalRepository proposalRepository = new ProposalRepository();
             proposalRepository.InsertProposal(proposal);
-        }
-
-        public ActionResult Preview(string documentAbstract, string documentObjectives, string documentOutcomes, string documentMain, string documentReferences)
-        {
-            ViewBag.previewAbstract = documentAbstract;
-            ViewBag.previewObjectives = documentObjectives;
-            ViewBag.previewOutcomes = documentOutcomes;
-            ViewBag.previewMain = documentMain;
-            ViewBag.previewReferences = documentReferences;
-            return View("Preview");
         }
     }
 }
