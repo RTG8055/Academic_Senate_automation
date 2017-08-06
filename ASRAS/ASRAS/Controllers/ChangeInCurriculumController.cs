@@ -10,6 +10,7 @@ using System.Web.UI;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Bson.Serialization;
+using System.Diagnostics;
 
 namespace ASRAS.Controllers
 {
@@ -72,18 +73,12 @@ namespace ASRAS.Controllers
             return View("Modify");
         }
 
-        public void insertIntoDatabase(string documentAbstract, string documentObjectives, string documentOutcomes, string documentMain, string documentReferences)
+        public void insertIntoDatabase(Proposal proposal)
         {
-            Proposal proposal = new Proposal();
-
-            proposal.Abstract = documentAbstract;
-            proposal.Objectives = documentObjectives;
-            proposal.Outcome = documentOutcomes;
-            proposal.Full_syll = documentMain;
-            proposal.References = documentReferences;
-
-            ProposalRepository proposalRepository = new ProposalRepository();
-            proposalRepository.InsertProposal(proposal);
+            //Proposal proposal = (Proposal)TempData["AnotherDataSet"];
+            Debug.WriteLine("entered insert function");
+            Debug.WriteLine(proposal.Abstract);
+            new ProposalRepository().InsertProposal(proposal);
         }
     }
 }
