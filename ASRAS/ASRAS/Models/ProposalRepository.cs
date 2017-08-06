@@ -18,13 +18,14 @@ namespace ASRAS.Models
         {
             _client = new MongoClient();
             _database = _client.GetDatabase("AcademicSenate");
-            _collection = _database.GetCollection<Proposal>("Proposal");
+            _collection = _database.GetCollection<Proposal>("Proposals");
         }
 
         public void InsertProposal(Proposal p)
         {
             this._collection.InsertOneAsync(p);
         }
+
         public List<Proposal> GetProposals(string Institute)
         {
             string query = "{Institute :'" + Institute + "'}";
