@@ -103,4 +103,24 @@
     <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "ChangeInCurriculum")'">
         Submit
     </button>
+    <button class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "Upload")'">
+        Submit
+    </button>
 }
+
+@using (Html.BeginForm("UploadFile", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div>
+
+
+        @Html.TextBox("file", "", new { type = "file" }) <br />
+
+        <input type="submit" value="Upload"  />
+
+        @ViewBag.Message
+
+    </div>
+
+
+}  

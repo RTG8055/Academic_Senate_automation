@@ -164,6 +164,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\PreviewController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Models\CourseViewModal.cs" />
     <Compile Include="Models\DepartmentViewModal.cs" />
     <Compile Include="Models\DocumentGenerator.cs" />
@@ -304,6 +305,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\" />
+    <Folder Include="Views\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
