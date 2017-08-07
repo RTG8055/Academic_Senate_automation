@@ -12,18 +12,7 @@ namespace ASRAS.Controllers
     {
         public ActionResult Preview(/*string documentAbstract, string documentObjectives, string documentOutcomes, string documentMain, string documentReferences,*/ Proposal p)
         {
-            //Proposal proposal = new Proposal();
-
             Debug.WriteLine("date: "+p.DateofBOS);
-
-            //proposal.Abstract = documentAbstract;
-            //proposal.Objectives = documentObjectives;
-            //proposal.Outcome = documentOutcomes;
-            //proposal.Full_syll = documentMain;
-            //proposal.References = documentReferences;
-
-            //ProposalRepository proposalRepository = new ProposalRepository();
-            //proposalRepository.InsertProposal(proposal);
 
             TempData["DataSet"] = p;
 
