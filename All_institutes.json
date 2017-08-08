@@ -168,7 +168,8 @@
 		}
 	],
 	"Ins_id" : 1,
-	"Name" : "Manipal Institute of Technology"
+	"Name" : "Manipal Institute of Technology",
+	"ShortName" : "MIT"
 },
 {
 	"_id" : ObjectId("5967b67042bb2b0d0c615bdc"),
@@ -340,5 +341,6 @@
 		}
 	],
 	"Ins_id" : 2,
-	"Name" : "School of Communication"
+	"Name" : "School of Communication",
+	"ShortName" : "SOC"
 },

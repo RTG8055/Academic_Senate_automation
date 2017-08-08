@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Change Assessment Pattern";
+    List<String> names = new List<String>();
+    names = (List<String>)(ViewData["Ins"]);
+}
+
+<h2>Change Time Scheme</h2>
+<h3>Fill the full form before submitting Mr. @ViewBag.Uname</h3>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[type=radio][name=Subjects]').change(function () {
+            var selectedInstituteID = $('#Institute_DropDownId option:selected').val();
+            var selectedDepartmentID = $('#Department_DropDownId option:selected').val();
+            var selectedCourseID = $('#Course_DropDownId option:selected').val();
+            var selectedSemesterID = $('#Semester_DropDownId option:selected').val();
+            var selectedSubtype = this.value;
+            if (this.value == 'Core') {
+                selectedSubtype = 1;
+            }
+            else if (this.value == 'PE') {
+                selectedSubtype = 2;
+            }
+            else if (this.value == 'OE') {
+                selectedSubtype = 3;
+            }
+            console.log(selectedInstituteID + " " + selectedDepartmentID + " " + selectedCourseID + " " + selectedSemesterID + " " + selectedSubtype);
+            $('#SubjectContainer').load('@Url.Action("SubjectView","DropDown")?InstituteID=' + selectedInstituteID + '&DeptID=' + selectedDepartmentID + '&CourseID=' + selectedCourseID + '&SemesterID=' + selectedSemesterID + '&Sub_type=' + selectedSubtype);
+        });
+    });
+</script>
+<div id="InstituteContainer">
+    @Html.Action("InstituteView", "DropDown")
+</div>
+<br />
+<div id="DepartmentContainer">
+    @Html.Action("DepartmentView", "DropDown", new { InstituteID = 123 })
+</div>
+<br />
+<div id="CourseContainer">
+    @Html.Action("CourseView", "DropDown", new { InstituteID = 123, DeptID = 1 })
+</div>
+<p>
+    Below sections are for development/debugging purposes only and will be modified before final deployment
+</p>
+<br />
+
+@using (Html.BeginForm("GenerateDocument", "ChangeInRegulations"))
+{
+    <p>Present Evaluation Split:</p>
+    <div id="presentEvaluationContainer">
+        <textarea name="documentPresentEvaluation" id="documentabstract" rows="10" cols="500"></textarea>
+    </div>
+    <p>Proposed Evaluation Split:</p>
+    <div id="proposedEvaluationContainer">
+        <textarea name="documentProposedEvaluation" id="objectives" rows="10" cols="500"></textarea>
+    </div>
+    <div id="locationContainer">
+        <textarea name="location" id="location" rows="10" cols="500"></textarea>
+    </div>
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("GenerateDocument", "ChangeInRegulations")'">
+        Generate Document
+    </button>
+}

@@ -1,0 +1,30 @@
+﻿@model ASRAS.Models.Proposal
+
+@{ 
+    var data = (ASRAS.Models.Proposal)(TempData["DataSet"]);
+    var arrayObjs = @ASRAS.Models.JavaScriptConverter.SerializeObject(data);
+    TempData["AnotherDataSet"] = data;
+}
+<div id="contentFrame"></div>
+<script>
+    var ao = @arrayObjs;
+    var listOfKeys = Object.keys(ao);
+    console.log(Object.keys(ao));
+    for (i = 0;i < 36;i++)
+    {
+        if (ao[listOfKeys[i]] != undefined) {
+            var header = document.createElement('h1');
+            console.log("Header: " + listOfKeys[i]);
+            header.innerText = listOfKeys[i].toUpperCase();
+
+            var content = document.createElement('p');
+            console.log("Content: " + ao[listOfKeys[i]]);
+            content.style.fontSize = 14;
+            content.innerText = ao[listOfKeys[i]];
+
+            document.getElementById('contentFrame').appendChild(header);
+            document.getElementById('contentFrame').appendChild(content);
+        }
+    }
+</script>
+<button onclick="location.href='@Url.Action("insertIntoDatabase", "Preview")'">Submit</button>

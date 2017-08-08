@@ -31,7 +31,7 @@ namespace ASRAS.Models
             return this.Get(contact.UserName);
             //return contact;
         }
-        public User UpdateProposals(string Uname, List<Proposal> newProposals)
+        /*public User UpdateProposals(string Uname, List<Proposal> newProposals)
         {
             //pass a new list of proposals(modify the proposal to be updated and pass the rest as the same) and the username of the user who needs to be modified
             //returns the old user with modifications
@@ -40,13 +40,13 @@ namespace ASRAS.Models
             return UpdateUser(U);
 
 
-        }
-        public List<Proposal> GetProposals(string Uname)
+        }*/
+        /*public List<Proposal> GetProposals(string Uname)
         {
             //get all the proposals of a particular user can be fetched by passing the username of the user
             User U = this._collection.Find(new BsonDocument { { "UserName", Uname } }).FirstAsync().Result;
             return U.Proposals;
-        }
+        }*/
         public List<User> SelectAll()
         {
             //for quering use this function to fetch a list of all users in the collection and then loop through to find the required
