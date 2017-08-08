@@ -10,11 +10,9 @@ namespace ASRAS.Controllers
 {
     public class PreviewController : Controller
     {
-        public ActionResult Preview(/*string documentAbstract, string documentObjectives, string documentOutcomes, string documentMain, string documentReferences,*/ Proposal p)
+        public ActionResult Preview(Proposal proposal)
         {
-            Debug.WriteLine("date: "+p.DateofBOS);
-
-            TempData["DataSet"] = p;
+            TempData["DataSet"] = proposal;
 
             return View();
         }

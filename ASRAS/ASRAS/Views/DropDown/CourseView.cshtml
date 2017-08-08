@@ -1,12 +1,12 @@
 ﻿
-@model ASRAS.Models.CourseViewModal
+@model ASRAS.Models.FormModal
 
 @{
     Layout = null;
 }
 
-@Html.DropDownListFor(p => p.SelectedCourseID,
-    Model.CourseIEnum,
+@Html.DropDownListFor(model => model.proposal.Course,
+    Model.courseViewModal.CourseIEnum,
     "Select a Course",
     new { @id = "Course_DropDownId", @class = "Course_DropDownClass"})
 

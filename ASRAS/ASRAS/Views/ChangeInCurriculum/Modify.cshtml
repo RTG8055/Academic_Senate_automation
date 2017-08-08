@@ -1,4 +1,4 @@
-﻿@model ASRAS.Models.Proposal  
+﻿@model ASRAS.Models.FormModal
 
 @{
     ViewBag.Title = "Page1";
@@ -9,7 +9,7 @@
 
 <h2>Modify Syllabus - Page 1</h2>
 <h3>Fill the full form before submitting Mr. @ViewBag.Uname</h3>
- 
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('input[type=radio][name=Subjects]').change(function () {
@@ -35,68 +35,81 @@
 
 @using (Html.BeginForm("Preview", "Preview"))
 {
-<div class="form-group">
-
-    @Html.LabelFor(model => model.DateofBOS, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-        @Html.EditorFor(model => model.DateofBOS, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee Date Of Birth" } })
-        @Html.ValidationMessageFor(model => model.DateofBOS, "", new { @class = "text-danger" })
+    //Date Selector
+    <div class="form-group">
+        @Html.EditorFor(model => model.proposal.DateofBOS, new { htmlAttributes = new { @class = "form-control", placeholder = "Date of BoS meeting" } })
+        @Html.ValidationMessageFor(model => model.proposal.DateofBOS, "", new { @class = "text-danger" })
     </div>
-</div> 
-<div id="InstituteContainer">
-    @Html.Action("InstituteView", "DropDown")
-</div>
-<br />
-<div id="DepartmentContainer">
-    @Html.Action("DepartmentView", "DropDown", new { InstituteID = 123 })
-</div>
-<br />
-<div id="CourseContainer">
-    @Html.Action("CourseView", "DropDown", new { InstituteID = 123, DeptID = 1 })
-</div>
-<br />
-<div id="SemesterContainer">
-    @Html.Action("SemesterView", "DropDown", new { InstituteID = 123, DeptID = 1, CourseID = 1 })
-</div>
-<br />
-<div id="SubjectType">
-    Core:<input type="radio" name="Subjects" value="1" /><br />
-    PE:<input type="radio" name="Subjects" value="2" /><br />
-    OE:<input type="radio" name="Subjects" value="3" /><br />
-</div>
-<br />
-<div id="SubjectContainer">
-    @Html.Action("SubjectView", "DropDown", new { InstituteId = 123, DeptID = 1, CourseID = 1, SemesterID = 1, Sub_type = 1 })
-</div>
+    <br />
 
-<p>
-    Below sections are for development/debugging purposes only and will be modified before final deployment
-</p>
-<br />
+    //Dropdown box to select institute
+    <div id="InstituteContainer">
+        @Html.Action("InstituteView", "DropDown")
+    </div>
+    <br />
+
+    //Dropdown box to select department
+    <div id="DepartmentContainer">
+        @Html.Action("DepartmentView", "DropDown", new { InstituteID = 123 })
+    </div>
+    <br />
+
+    //Dropdown box to select course
+    <div id="CourseContainer">
+        @Html.Action("CourseView", "DropDown", new { InstituteID = 123, DeptID = 1 })
+    </div>
+    <br />
+
+    //Dropdown box to select semester
+    <div id="SemesterContainer">
+        @Html.Action("SemesterView", "DropDown", new { InstituteID = 123, DeptID = 1, CourseID = 1 })
+    </div>
+    <br />
+
+    //Radiobuttons to select type of course
+    <div id="SubjectType">
+        <input type="radio" name="Subjects" value="1" />Core<br />
+        <input type="radio" name="Subjects" value="2" />PE<br />
+        <input type="radio" name="Subjects" value="3" />OE<br />
+    </div>
+    <br />
+
+    //Dropdown box to select subject
+    <div id="SubjectContainer">
+        @Html.Action("SubjectView", "DropDown", new { InstituteId = 123, DeptID = 1, CourseID = 1, SemesterID = 1, Sub_type = 1 })
+    </div>
+    <br />
+
     <p>Abstract:</p>
+    //Textbox to enter Abstract
     <div id="abstractContainer">
-        @Html.TextBoxFor(model => model.Abstract)
+        @Html.TextBoxFor(model => model.proposal.Abstract, new { @id = "abstract" })
     </div>
+
     <p>Objectives:</p>
+    //Textbox to enter objectives
     <div id="objectivesContainer">
-        @Html.TextBoxFor(model => model.Objectives, new { @id = "objectives" })
+        @Html.TextBoxFor(model => model.proposal.Objectives, new { @id = "objectives" })
     </div>
+
     <p>Outcomes:</p>
+    //Textbox to enter outcomes
     <div id="outcomesContainer">
-        @Html.TextBoxFor(model => model.Outcome)
+        @Html.TextBoxFor(model => model.proposal.Outcome, new { @id = "outcomes" })
     </div>
+
     <p>Full Text:</p>
+    //Textbox to enter full syllabus
     <div id="fulltextContainer">
-        @Html.TextBoxFor(model => model.Full_syll)
+        @Html.TextBoxFor(model => model.proposal.Full_syll, new { @id = "fullSyllabus" })
     </div>
+
     <p>References:</p>
+    //Textbox to enter references
     <div id="referencesContainer">
-        @Html.TextBoxFor(model => model.References)
+        @Html.TextBoxFor(model => model.proposal.References, new { @id = "references" })
     </div>
-    <p>(for temporary use, enter full location to store document. Eg "C:/debugging/try.docx")</p>
-    <div id="locationContainer">
-        <textarea name="location" id="location" rows="10" cols="500"></textarea>
-    </div>
+
     <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("Preview", "Preview")'">
         Preview
     </button>
@@ -120,4 +133,4 @@
         @ViewBag.Message
 
     </div>
-}  
+}
