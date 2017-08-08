@@ -5,12 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ASRAS.Models
 {
     public class AzureConnection
     {
-        public void UploadFiletoblobStorage(string containerName,string blockBlogName,string fileName)
+        public void UploadFileToBlobStorage(string containerName,string blockBlogName, HttpFileCollectionBase files)
         {
             //Retrive storage account from connection string
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("DefaultEndpointsProtocol=https;AccountName=academicsenatedemo;AccountKey=JzngmTlAZLhXzKxIzoApjJkL/++n/I3Cxmom8BiKxkTsPu00VsePFAZIm2bmkaOJBflBNxn12B/eqfaz0N1IOQ==;EndpointSuffix=core.windows.net"));
@@ -31,6 +32,16 @@ namespace ASRAS.Models
             //Rettrive reference to a blob named myBlob
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(blockBlogName);
 
+            blockBlob.UploadFromStream(files[0].InputStream);
+
+            // Create or overwrite the "myblob" blob with contents from a local file.
+            //using (var fileStream = System.IO.File.OpenRead(fileName))
+            //{
+            //    blockBlob.UploadFromStream(fileStream);
+            //}
+
         }
+
+        
     }
 }
