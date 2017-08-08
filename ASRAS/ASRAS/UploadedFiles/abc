@@ -1,2 +1,8 @@
-[UNINSTALL GUIDS]
-p_1_7_MP_Guid001={931C37FC-594D-43A9-B10F-A2F2B1F03498}
+var http = require("http");
+
+http.createServer(function (request, response){
+	response.writehead(200,{'content-type':'text/plain'});
+	response.end('Hello, World\n');
+}).listen(8081);
+
+console.log('server running at http://127.0.0.1:8081/');
