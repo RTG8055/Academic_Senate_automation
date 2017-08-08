@@ -1,12 +1,12 @@
 ﻿
-@model ASRAS.Models.DepartmentViewModal
+@model ASRAS.Models.FormModal
 
 @{
     Layout = null;
 }
 
-@Html.DropDownListFor(p => p.SelectedDepartmentID,
-    Model.DepartmentIEnum, 
+@Html.DropDownListFor(model => model.proposal.Dept,
+    Model.departmentViewModal.DepartmentIEnum, 
     "Select Department",
     new { @id = "Department_DropDownId", @class = "Department_DropDownClass"})
 
