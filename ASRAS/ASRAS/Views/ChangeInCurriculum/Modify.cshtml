@@ -134,3 +134,12 @@
 
     </div>
 }
+
+@*@using (Html.BeginForm("UploadTestFile", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <span>
+        <input type="file" name="myFile" multiple /> <br>
+        <input type="submit" value="Upload" />
+    </span>
+
+}*@
