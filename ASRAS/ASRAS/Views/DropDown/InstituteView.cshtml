@@ -1,13 +1,7 @@
-﻿
-@model ASRAS.Models.InstituteViewModal
+﻿@model ASRAS.Models.FormModal
 
-@{
-    Layout = null;
-}
-
-
-@Html.DropDownListFor(p => p.SelectedInstituteID, 
-    Model.InstituteIEnum,
+@Html.DropDownListFor(model => model.proposal.Institute, 
+    Model.instituteViewModal.InstituteIEnum,
     "Select Institute",
     new { @id = "Institute_DropDownId", @class = "Institute_DropDownClass"})
 
@@ -19,7 +13,7 @@
             console.log(selectedInstituteId);
             $('#DepartmentContainer').load('@Url.Action("DepartmentView")?InstituteID=' + selectedInstituteId);
             console.log(selectedInstituteId);
-            // clear up the city drop down list as no state is selected
+
             $('#CourseContainer').load('@Url.Action("CourseView")');
             $('#SemesterContainer').load('@Url.Action("SemesterView")');
             $('#SubjectContainer').load('@Url.Action("SubjectView")');

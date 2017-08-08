@@ -19,5 +19,7 @@ namespace ASRAS.Models
                 return new SelectList(DeptList, "D_id", "Dname");
             }
         }
+
+        public Proposal proposal { get; set; }
     }
 }
