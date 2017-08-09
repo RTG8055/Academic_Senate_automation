@@ -1,12 +1,12 @@
 ﻿
-@model ASRAS.Models.SemesterViewModal
+@model ASRAS.Models.FormModal
 
 @{
     Layout = null;
 }
 
-@Html.DropDownListFor(p => p.selectedSemesterID,
-                          Model.SemesterIEnum,
+@Html.DropDownListFor(model => model.proposal.Semester,
+                          Model.semesterViewModal.SemesterIEnum,
                           "Select a Semester",
                           new
                           {
