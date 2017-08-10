@@ -1,0 +1,6 @@
+﻿@model ASRAS.Models.ProposalList
+@{
+    Layout = null;
+}\
+\
+<table><thead><tr><td>DateOfBoS</td><td>Proposal_ID</td><td>Department</td><td>Course</td><td>Index</td><td>Title</td></tr></thead><tbody>@foreach (var p in Model.PList){<tr><td>@p.DateofBOS</td><td>@p.P_id</td><td>@p.Dept</td><td>@p.Course</td><td>@p.Index</td><td>@p.Title</td></tr>}</tbody></table>\
