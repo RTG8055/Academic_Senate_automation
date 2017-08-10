@@ -1,7 +1,8 @@
 ﻿@{
 
     ViewBag.Title = "View";
-    var Uname = ViewBag.Uname;
+    //var Uname = ViewBag.Uname;
+    var Uname2 = Session["UserName"];
  <html>
  <head>
      <meta charset="utf-8" />
@@ -12,8 +13,17 @@
      @Scripts.Render("~/bundles/modernizr")
      
  </head>
-<body><h1> Welcome @Uname</h1></body>
 <body>
+    <script type="text/javascript">
+       
+        function GetProposals()
+        {
+            console.log("entered Function");
+            //var u = @Uname2;
+            document.getElementById('Proposals').innerHTML = " \@Html.Action("GetProposals",new { Uname = Uname2 })\ ";
+        }
+    </script>
+    <h1> Welcome @Uname2</h1>
     <div class="container">
         <div.one class="jumbotron" style="width:300px;float: left;">
             <img src="~/images/url.gif" align="left"/>
@@ -21,7 +31,7 @@
         <div.two style="float:right;width:700px">
             <ul class="nav nav-tabs">
                 <li role="presentation" class="active"><a href="#create" data-toggle="tab">Create Proposal</a></li>
-                <li role="presentation"><a href="#view" data-toggle="tab">View Proposals</a></li>
+                <li role="presentation"><a href="#view" data-toggle="tab" onclick="GetProposals()">View Proposals</a></li>
             </ul>
             <div class="tab-content">
                 <div id="create" class="tab-pane fade in active" style="align-content:center;">
@@ -33,9 +43,9 @@
                 </div>
                 <div id="view" class="tab-pane fade">
                     <div class="jumbotron">
-                        <a href="../../components/#navbar" class="list-group-item">Proposal 1</a>
-                        <a href="../../components/#navbar" class="list-group-item">Proposal 2</a>
-                        <a href="../../components/#navbar" class="list-group-item">Proposal 3</a>
+                        <div id="Proposals">
+                            
+                        </div>
                     </div>
                 </div>
             </div>

@@ -215,6 +215,7 @@
     <Compile Include="Models\InstituteViewModal.cs" />
     <Compile Include="Models\JavaScriptConverter.cs" />
     <Compile Include="Models\Proposal.cs" />
+    <Compile Include="Models\ProposalList.cs" />
     <Compile Include="Models\ProposalRepository.cs" />
     <Compile Include="Models\SemesterViewModal.cs" />
     <Compile Include="Models\SubjectViewModal.cs" />
@@ -344,6 +345,7 @@
     <Content Include="Views\ChangeInRegulations\ChangePromotionCriteria.cshtml" />
     <Content Include="Views\ChangeInCurriculum\Preview.cshtml" />
     <Content Include="Views\Preview\Preview.cshtml" />
+    <Content Include="Views\Main\GetProposals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
