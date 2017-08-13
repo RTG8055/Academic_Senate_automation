@@ -156,6 +156,7 @@ namespace ASRAS.Controllers
                             string UserName = s.UserName.ToString();
                             TempData["UserName"] = s.UserName;
                             Session["UserName"] = s.UserName;
+                            Session["Name"] = s.Name;
                             Session["Institute"] = s.Institute;
                             return this.RedirectToAction("Index", "Main");
                             

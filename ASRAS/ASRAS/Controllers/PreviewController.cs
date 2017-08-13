@@ -26,7 +26,7 @@ namespace ASRAS.Controllers
         }
         public ActionResult Submit()
         {
-            insertIntoDatabase()
+            insertIntoDatabase();
             return RedirectToAction("Index", "Main");
         }
     }
