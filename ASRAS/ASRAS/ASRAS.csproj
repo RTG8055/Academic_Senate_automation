@@ -233,8 +233,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.js" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min.js" />
+    <Content Include="Content\cover.css" />
+    <Content Include="Content\Images\manipal.jpg" />
     <Content Include="Content\mu_logo.jpg" />
+    <Content Include="Content\npm.js" />
     <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -281,6 +286,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\manipal.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -346,6 +352,7 @@
     <Content Include="Views\ChangeInCurriculum\Preview.cshtml" />
     <Content Include="Views\Preview\Preview.cshtml" />
     <Content Include="Views\Main\GetProposals.cshtml" />
+    <Content Include="Views\Shared\_Layout1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
