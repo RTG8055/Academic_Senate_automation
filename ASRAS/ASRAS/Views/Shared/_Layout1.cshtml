@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var Uname2 = (string)Session["UserName"];
+    var Name = (string)Session["Name"];
+}
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -76,8 +81,8 @@
                     </div>
                 </div>
                 <div class="inner cover">
-                    <h1 class="cover-heading">Welcome Uname2</h1>
-                    <p class="lead">Do something about the username and the button</p>
+                    <h1 class="cover-heading">Welcome @Name</h1>
+                    <p class="lead">Do something about the button</p>
                     <p class="lead">
                         <a href="#" class="btn btn-lg btn-default">Learn more</a>
                     </p>

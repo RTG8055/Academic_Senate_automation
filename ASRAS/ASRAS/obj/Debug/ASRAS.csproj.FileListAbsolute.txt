@@ -279,3 +279,16 @@ C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automa
 C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\ru\System.Spatial.resources.dll
 C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\AWSSDK.Core.dll
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Auth.dll
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Auth.PlatformServices.dll
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Core.dll
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.dll
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Drive.v2.dll
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.PlatformServices.dll
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\AWSSDK.Core.pdb
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\AWSSDK.Core.xml
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.xml
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Auth.xml
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Core.xml
+C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Drive.v2.xml
