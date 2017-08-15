@@ -24,5 +24,10 @@ namespace ASRAS.Controllers
             Debug.WriteLine(p.Abstract);
             new ProposalRepository().InsertProposal(p);
         }
+        public ActionResult Submit()
+        {
+            insertIntoDatabase();
+            return RedirectToAction("Index", "Main");
+        }
     }
 }
