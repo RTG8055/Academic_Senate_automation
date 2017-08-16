@@ -64,10 +64,13 @@ namespace ASRAS.Controllers
             wordDocument = DocumentGenerator.insert(wordDocument, "Outcomes", documentOutcomes);
             wordDocument = DocumentGenerator.insert(wordDocument, "Syllabus", documentMain);
             wordDocument = DocumentGenerator.insert(wordDocument, "References", documentReferences);
-            DocumentGenerator.saveDocument(wordDocument, location);
+            //wordDocument = DocumentGenerator.insertBullet(wordApplication, wordDocument);
+            //DocumentGenerator.saveDocument(wordDocument, "C:/debugging/abcdefg.docx");
 
             wordDocument.Close();
             wordApplication.Quit();
+
+            //DocumentGenerator.readDocument();
 
             return View("Modify");
         }
