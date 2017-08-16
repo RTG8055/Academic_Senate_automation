@@ -1,10 +1,12 @@
 ﻿@model ASRAS.Models.FormModal
-
 @{
     ViewBag.Title = "Page1";
     //SelectList I = new SelectList(@TempData["Ins"].ToString(), @TempData["Ins"].ToString(), @TempData["Ins"].ToString());
     //List<String> names = new List<String>();
     //names = (List<String>)(ViewData["Ins"]);
+    var Ins = (ASRAS.Models.Institute)Session["Institute"];
+    var Institute = Ins.Name;
+    var Ins_id = (Double)Session["Ins_id"];
 }
 
 <h2>Modify Syllabus - Page 1</h2>
@@ -16,7 +18,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('input[type=radio][name=Subjects]').change(function () {
-            var selectedInstituteID = $('#Institute_DropDownId option:selected').val();
+            var selectedInstituteID = @Ins_id;
             var selectedDepartmentID = $('#Department_DropDownId option:selected').val();
             var selectedCourseID = $('#Course_DropDownId option:selected').val();
             var selectedSemesterID = $('#Semester_DropDownId option:selected').val();
@@ -66,7 +68,7 @@
     })();
 </script>
 
-@using (Html.BeginForm("GenerateDocument", "ChangeInCurriculum"))
+@using (Html.BeginForm("Preview", "Preview"))
 {
     //Date Selector
     <div class="form-group">
@@ -77,13 +79,14 @@
 
     //Dropdown box to select institute
     <div id="InstituteContainer">
-        @Html.Action("InstituteView", "DropDown")
+        @*@Html.Action("InstituteView", "DropDown")*@
+        <h2>@Institute</h2>
     </div>
     <br />
 
     //Dropdown box to select department
     <div id="DepartmentContainer">
-        @Html.Action("DepartmentView", "DropDown", new { InstituteID = 123 })
+        @Html.Action("DepartmentView", "DropDown", new { InstituteID = Ins_id})
     </div>
     <br />
 
@@ -143,7 +146,7 @@
         @Html.TextBoxFor(model => model.proposal.References, new { @id = "references" })
     </div>
 
-    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("GenerateDocument", "ChangeInCurriculum")'">
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("Preview", "Preview")'">
         Preview
     </button>
     <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "ChangeInCurriculum")'">
