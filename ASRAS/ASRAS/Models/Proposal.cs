@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using MongoDB.Bson;
 
 namespace ASRAS.Models
 {
     public class Proposal
     {
+        public ObjectId _id { get; set; }
         public Double P_id { get; set; }
 
         [DataType(DataType.Date)]
