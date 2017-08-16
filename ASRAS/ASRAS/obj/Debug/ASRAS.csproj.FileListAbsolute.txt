@@ -292,3 +292,16 @@ C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis
 C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Auth.xml
 C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Core.xml
 C:\Users\RTG\Source\Repos\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Drive.v2.xml
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\AWSSDK.Core.dll
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Auth.dll
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Auth.PlatformServices.dll
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Core.dll
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.dll
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Drive.v2.dll
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.PlatformServices.dll
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\AWSSDK.Core.pdb
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\AWSSDK.Core.xml
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.xml
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Auth.xml
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Core.xml
+C:\Users\MAHE\Documents\GitHub\Academic_Senate_automation\Academic_Senate_automation\ASRAS\ASRAS\bin\Google.Apis.Drive.v2.xml
