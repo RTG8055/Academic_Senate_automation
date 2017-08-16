@@ -70,6 +70,8 @@ namespace ASRAS.Controllers
             wordDocument.Close();
             wordApplication.Quit();
 
+            DocumentGenerator.readDocument();
+
             return View("Modify");
         }
 

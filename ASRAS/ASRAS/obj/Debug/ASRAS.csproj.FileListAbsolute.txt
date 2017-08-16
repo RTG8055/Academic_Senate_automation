@@ -359,3 +359,4 @@ C:\Users\admin1\Documents\GitHub\Academic_Senate_automation\ASRAS\ASRAS\bin\ko\S
 C:\Users\admin1\Documents\GitHub\Academic_Senate_automation\ASRAS\ASRAS\bin\ru\System.Spatial.resources.dll
 C:\Users\admin1\Documents\GitHub\Academic_Senate_automation\ASRAS\ASRAS\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\admin1\Documents\GitHub\Academic_Senate_automation\ASRAS\ASRAS\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\admin1\Documents\GitHub\Academic_Senate_automation\ASRAS\ASRAS\obj\Debug\ASRAS.csproj.CoreCompileInputs.cache
