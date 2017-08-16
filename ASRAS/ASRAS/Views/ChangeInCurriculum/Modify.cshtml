@@ -66,7 +66,7 @@
     })();
 </script>
 
-@using (Html.BeginForm("Preview", "Preview"))
+@using (Html.BeginForm("GenerateDocument", "ChangeInCurriculum"))
 {
     //Date Selector
     <div class="form-group">
@@ -143,7 +143,7 @@
         @Html.TextBoxFor(model => model.proposal.References, new { @id = "references" })
     </div>
 
-    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("Preview", "Preview")'">
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("GenerateDocument", "ChangeInCurriculum")'">
         Preview
     </button>
     <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "ChangeInCurriculum")'">
