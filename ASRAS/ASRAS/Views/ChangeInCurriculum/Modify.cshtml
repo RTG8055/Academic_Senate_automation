@@ -9,6 +9,9 @@
 
 <h2>Modify Syllabus - Page 1</h2>
 <h3>Fill the full form before submitting Mr. @ViewBag.Uname</h3>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js">
+</script>
+<script src="http://malsup.github.com/jquery.form.js"></script> 
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -32,8 +35,38 @@
         });
     });
 </script>
+<script>
+    (function () {
+        var bar = $('.progress-bar');
+        var percent = $('.progress-bar');
+        var status = $('#status');
 
-@using (Html.BeginForm("Preview", "Preview"))
+        $('form').ajaxForm({
+            beforeSend: function () {
+                status.empty();
+                var percentVal = '0%';
+                bar.width(percentVal)
+                percent.html(percentVal);
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var percentVal = percentComplete + '%';
+                bar.width(percentVal)
+                percent.html(percentVal);
+            },
+            success: function () {
+                var percentVal = '100%';
+                bar.width(percentVal)
+                percent.html(percentVal);
+            },
+            complete: function (xhr) {
+                status.html(xhr.responseText);
+            }
+        });
+
+    })();
+</script>
+
+@using (Html.BeginForm("GenerateDocument", "ChangeInCurriculum"))
 {
     //Date Selector
     <div class="form-group">
@@ -110,7 +143,7 @@
         @Html.TextBoxFor(model => model.proposal.References, new { @id = "references" })
     </div>
 
-    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("Preview", "Preview")'">
+    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("GenerateDocument", "ChangeInCurriculum")'">
         Preview
     </button>
     <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "ChangeInCurriculum")'">
@@ -121,19 +154,21 @@
     </button>
 }
 
-@using (Html.BeginForm("UploadFile", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <div>
-
-
-        @Html.TextBox("file", "", new { type = "file" }) <br />
-
-        <input type="submit" value="Upload"  />
-
-        @ViewBag.Message
-
+<div>
+    @using (Html.BeginForm("UploadFile", "ChangeInCurriculum", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <span>Select File</span>
+        <input type="file" name="file" />
+        <hr />
+        <input type="submit" value="Upload" />
+        <br />
+        <span style="color: green">@ViewBag.Message</span>
+    }
+    <div class="progress progress-striped">
+        <div class="progress-bar progress-bar-success">0%</div>
     </div>
-}
+</div>
 
 @*@using (Html.BeginForm("UploadTestFile", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
