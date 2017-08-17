@@ -11,31 +11,29 @@
 <head>
     <title>My Account</title>
 </head>
-<body>
+<body onload="xyz()">
     <h2 align="center">My Account</h2>
-    <text onclick="mUser()">Change Username</text>
-    <text onclick="mPass()">Change Password</text>
+    <h3><text onclick="mPass()">Change Password</text></h3>
     <br />
-    <div id="userdiv">
-        Current Username
-        <br />
-        <input type="text" id="userold" /><br />
-        New Username
-        <input type="text" id="usernew" />
-    </div>
-    <br />
-    <div id="passdiv">
-        New Password
-        <br />
-        <input type="text" id="passnew" />
-    </div>
+    <form id="passform">
+        <div id="passdiv">
+            New Password
+            <br />
+            <input type="text" name="passnew" />
+            <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("ChangePassword", "Main")'">
+                Change Password
+            </button>
+        </div>
+    </form>
 </body>
 </html>
 
 <script type="text/javascript">
-    function mUser()
+    function mPass()
     {
-        window.alert(@Uname2);
-        document.GetElementById("userold");
+        document.getElementById("passform").style.display = "block";
+    }
+    function xyz() {
+        document.getElementById("passform").style.display = 'none';
     }
 </script>

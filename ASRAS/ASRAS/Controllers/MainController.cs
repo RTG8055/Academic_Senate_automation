@@ -38,12 +38,12 @@ namespace ASRAS.Controllers
             
             return View();
         }
-        public ActionResult ChangePassword(string password)
+        public ActionResult ChangePassword(string passnew)
         {
             ViewBag.Uname = Session["UserName"];
             UserRepository _userReposiory = new UserRepository();
             User u = _userReposiory.Get((string)ViewBag.Uname);
-            u.Pass = password;
+            u.Pass = passnew;
             _userReposiory.UpdateUser(u);
             ViewBag.Message = "updated";
             return View("MyAccount");
