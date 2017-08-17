@@ -31,5 +31,22 @@ namespace ASRAS.Controllers
             p.PList = All_Proposals;
             return View(p);
         }
+
+        public ActionResult MyAccount()
+        {
+            //TempData["UserName2"] = TempData["UserName"];
+            
+            return View();
+        }
+        public ActionResult ChangePassword(string password)
+        {
+            ViewBag.Uname = Session["UserName"];
+            UserRepository _userReposiory = new UserRepository();
+            User u = _userReposiory.Get((string)ViewBag.Uname);
+            u.Pass = password;
+            _userReposiory.UpdateUser(u);
+            ViewBag.Message = "updated";
+            return View("MyAccount");
+        }
     }
 }
