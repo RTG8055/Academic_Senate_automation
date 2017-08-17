@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var Uname2 = (string)Session["UserName"];
+    var Name = (string)Session["Name"];
+}
+
+<html>
+<head>
+    <title>My Account</title>
+</head>
+<body>
+    <h2 align="center">My Account</h2>
+    <text onclick="mUser()">Change Username</text>
+    <text onclick="mPass()">Change Password</text>
+    <br />
+    <div id="userdiv">
+        Current Username
+        <br />
+        <input type="text" id="userold" /><br />
+        New Username
+        <input type="text" id="usernew" />
+    </div>
+    <br />
+    <div id="passdiv">
+        New Password
+        <br />
+        <input type="text" id="passnew" />
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    function mUser()
+    {
+        window.alert(@Uname2);
+        document.GetElementById("userold");
+    }
+</script>
