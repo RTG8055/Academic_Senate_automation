@@ -382,6 +382,7 @@
     <Content Include="Views\Preview\Preview.cshtml" />
     <Content Include="Views\Main\GetProposals.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
+    <Content Include="Views\Main\MyAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
