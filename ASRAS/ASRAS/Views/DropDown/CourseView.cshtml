@@ -3,6 +3,7 @@
 
 @{
     Layout = null;
+    var Ins_id = (Double)Session["Ins_id"];
 }
 
 @Html.DropDownListFor(model => model.proposal.Course,
@@ -13,7 +14,7 @@
 <script type="text/javascript">
     $(function () {
         $('#Course_DropDownId').change(function () {
-            var selectedInstituteID = $('#Institute_DropDownId option:selected').val();
+            var selectedInstituteID = @Ins_id;
             var selectedDepartmentID = $('#Department_DropDownId option:selected').val();
 
             var selectedCourseID = this.value;

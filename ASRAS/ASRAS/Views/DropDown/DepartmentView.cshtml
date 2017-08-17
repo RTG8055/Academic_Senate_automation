@@ -4,6 +4,9 @@
 @{
     Layout = null;
 }
+@{ 
+    var Ins_id = (Double)Session["Ins_id"];
+}
 
 @Html.DropDownListFor(model => model.proposal.Dept,
     Model.departmentViewModal.DepartmentIEnum, 
@@ -13,9 +16,9 @@
 <script type="text/javascript">
     $(function () {
         $('#Department_DropDownId').change(function () {
-            var selectedInstituteId = $('#Institute_DropDownId option:selected').val();
+            //var selectedInstituteId = $('#Institute_DropDownId option:selected').val();
             var selectedDepartmentId = this.value;
-            $('#CourseContainer').load('@Url.Action("CourseView")?InstituteID=' + selectedInstituteId + '&DeptID=' + selectedDepartmentId);
+            $('#CourseContainer').load('@Url.Action("CourseView")?InstituteID=' + @Ins_id + '&DeptID=' + selectedDepartmentId);
 
             $('#SemesterContainer').load('@Url.Action("SemesterView")');
             $('#SubjectContainer').load('@Url.Action("SubjectView")');

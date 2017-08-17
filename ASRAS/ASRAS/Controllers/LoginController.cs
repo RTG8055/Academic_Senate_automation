@@ -157,7 +157,10 @@ namespace ASRAS.Controllers
                             TempData["UserName"] = s.UserName;
                             Session["UserName"] = s.UserName;
                             Session["Name"] = s.Name;
-                            Session["Institute"] = s.Institute;
+                            //Session["Institute"] = s.Institute;
+                            InstituteRepository i = new InstituteRepository();
+                            Session["Institute"] = i.GetInstitute(s.Institute);
+                            Session["Ins_id"]= i.GetIns_Id(s.Institute);
                             return this.RedirectToAction("Index", "Main");
                             
                         }
