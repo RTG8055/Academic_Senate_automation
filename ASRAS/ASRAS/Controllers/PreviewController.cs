@@ -10,9 +10,10 @@ namespace ASRAS.Controllers
 {
     public class PreviewController : Controller
     {
-        public ActionResult Preview(Proposal proposal)
+        public ActionResult Preview(FormModal formModal)
         {
-            Institute i = (Institute)Session["Institute"];
+            Proposal proposal = formModal.proposal;
+            Institute i = (Institute) Session["Institute"];
             proposal.Institute = i.Name;
             try
             {
