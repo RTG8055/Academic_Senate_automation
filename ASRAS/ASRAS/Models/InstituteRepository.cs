@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System.Collections.Generic;
 using MongoDB.Bson.Serialization;
+using System;
 
 namespace ASRAS.Models
 {
@@ -42,6 +43,21 @@ namespace ASRAS.Models
             }
             //return Ins_names;
             return Ins_List;
+        }
+        public Institute GetInstitute(string Ins_name)
+        {
+            Institute i = _collection.Find(new BsonDocument { { "Name", Ins_name } }).FirstAsync().Result;
+            return i;
+        }
+        public string GetIns_name(Double Ins_id)
+        {
+            Institute i = _collection.Find(new BsonDocument { { "Ins_id", Ins_id } }).FirstAsync().Result;
+            return i.Name;
+        }
+        public Double GetIns_Id(string Ins_name)
+        {
+            Institute i = _collection.Find(new BsonDocument { { "Name", Ins_name } }).FirstAsync().Result;
+            return i.Ins_id;
         }
         public List<string> GetDepts(string Ins_name)
         {

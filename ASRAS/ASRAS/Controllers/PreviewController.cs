@@ -12,6 +12,46 @@ namespace ASRAS.Controllers
     {
         public ActionResult Preview(Proposal proposal)
         {
+            Institute i = (Institute)Session["Institute"];
+            proposal.Institute = i.Name;
+            try
+            {
+                foreach (Department d in i.Departments)
+                {
+                    if (d.D_id.ToString() == proposal.Dept)
+                    {
+                        proposal.Dept = d.Dname;
+                        if (proposal.Course == null)
+                        {
+                            continue;
+                        }
+                        foreach (Course c in d.Courses)
+                        {
+
+                            if (c.C_id.ToString() == proposal.Course)
+                            {
+                                proposal.Course = c.Cname;
+                                if (proposal.Semester == null)
+                                    continue;
+                                //foreach(Semester s in c.Semesters)
+                                //{
+                                //    if(s.S_id == proposal.Semester)
+                                //    {
+                                //        proposal.Semester = s.S_id;
+                                //        if(proposal.Sub_type == "1")
+
+                                //        }
+                                //    }
+                                //}
+                            }
+                        }
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e);
+            }
             TempData["DataSet"] = proposal;
 
             return View();

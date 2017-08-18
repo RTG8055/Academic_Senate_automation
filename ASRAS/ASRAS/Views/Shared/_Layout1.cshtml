@@ -65,9 +65,15 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a onclick="location.href='@Url.Action("GetProposals", "Main")'">
+                                    <a onclick="location.href='@Url.Action("GetProposals", "Main", new { Uname = @Uname2 })'">
                                         <span class="glyphicon glyphicon-list"
                                               aria-hidden="true"></span> View Proposals
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="location.href='@Url.Action("MyAccount", "Main")'">
+                                        <span class="glyphicon glyphicon-list"
+                                              aria-hidden="true"></span> MyAccount
                                     </a>
                                 </li>
                                 <li>
