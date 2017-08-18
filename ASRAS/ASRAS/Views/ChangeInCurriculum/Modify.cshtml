@@ -1,6 +1,6 @@
 ﻿@model ASRAS.Models.FormModal
 @{
-    ViewBag.Title = "Page1";
+    ViewBag.Title = "Modify Syllabus";
     //SelectList I = new SelectList(@TempData["Ins"].ToString(), @TempData["Ins"].ToString(), @TempData["Ins"].ToString());
     //List<String> names = new List<String>();
     //names = (List<String>)(ViewData["Ins"]);
@@ -16,6 +16,9 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        var etc = "@TempData["FullSyll"]";
+        console.log('fullsyll:'+etc);
+        document.getElementById("fullSyllabus").value = etc;
         $('input[type=radio][name=Subjects]').change(function () {
             var selectedInstituteID = @Ins_id;
             var selectedDepartmentID = $('#Department_DropDownId option:selected').val();
@@ -37,31 +40,6 @@
     });
 </script>
 <script>
-        var status = $('#status');
-
-        $('form').ajaxForm({
-            beforeSend: function () {
-                status.empty();
-                var percentVal = '0%';
-                bar.width(percentVal)
-                percent.html(percentVal);
-            },
-            uploadProgress: function (event, position, total, percentComplete) {
-                var percentVal = percentComplete + '%';
-                bar.width(percentVal)
-                percent.html(percentVal);
-            },
-            success: function () {
-                var percentVal = '100%';
-                bar.width(percentVal)
-                percent.html(percentVal);
-            },
-            complete: function (xhr) {
-                status.html(xhr.responseText);
-            }
-        });
-
-    })();
     //(function () {
     //    var bar = $('.progress-bar');
     //    var percent = $('.progress-bar');

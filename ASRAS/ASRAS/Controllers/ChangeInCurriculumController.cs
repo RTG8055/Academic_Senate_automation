@@ -27,6 +27,7 @@ namespace ASRAS.Controllers
         {
             TempData["UserName4"] = TempData["UserName3"];
             ViewBag.Uname = TempData["UserName3"];
+            TempData["FullSyll"] = DocumentGenerator.readDocument();
             return View("Modify");
         }
 
