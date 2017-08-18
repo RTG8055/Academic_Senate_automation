@@ -37,7 +37,7 @@ namespace ASRAS.Models
         }
         public void InsertProposal(Proposal p)
         {
-            p.P_id = getProposalId(p);
+            //p.P_id = getProposalId(p);
             this._collection.InsertOneAsync(p);
         }
 
