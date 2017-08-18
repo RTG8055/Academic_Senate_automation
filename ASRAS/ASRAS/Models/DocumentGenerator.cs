@@ -114,7 +114,7 @@ namespace ASRAS.Models
                     read = read + temp;
             }
 
-            Debug.Log(read);
+            Debug.WriteLine(read);
         }
     }
 }

@@ -59,18 +59,18 @@ namespace ASRAS.Controllers
             wordApplication.Visible = false;
             wordDocument = wordApplication.Documents.Add();
 
-            //wordDocument = DocumentGenerator.insert(wordDocument, "Abstract", documentAbstract);
-            //wordDocument = DocumentGenerator.insert(wordDocument, "Objectives", documentObjectives);
-            //wordDocument = DocumentGenerator.insert(wordDocument, "Outcomes", documentOutcomes);
-            //wordDocument = DocumentGenerator.insert(wordDocument, "Syllabus", documentMain);
-            //wordDocument = DocumentGenerator.insert(wordDocument, "References", documentReferences);
-            wordDocument = DocumentGenerator.insertBullet(wordApplication, wordDocument);
-            DocumentGenerator.saveDocument(wordDocument, "C:/debugging/abcdefg.docx");
+            wordDocument = DocumentGenerator.insert(wordDocument, "Abstract", documentAbstract);
+            wordDocument = DocumentGenerator.insert(wordDocument, "Objectives", documentObjectives);
+            wordDocument = DocumentGenerator.insert(wordDocument, "Outcomes", documentOutcomes);
+            wordDocument = DocumentGenerator.insert(wordDocument, "Syllabus", documentMain);
+            wordDocument = DocumentGenerator.insert(wordDocument, "References", documentReferences);
+            //wordDocument = DocumentGenerator.insertBullet(wordApplication, wordDocument);
+            //DocumentGenerator.saveDocument(wordDocument, "C:/debugging/abcdefg.docx");
 
             wordDocument.Close();
             wordApplication.Quit();
 
-            DocumentGenerator.readDocument();
+            //DocumentGenerator.readDocument();
 
             return View("Modify");
         }

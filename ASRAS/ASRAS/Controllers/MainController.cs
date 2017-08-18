@@ -24,12 +24,29 @@ namespace ASRAS.Controllers
             {
                 return Content("<script language = 'javascript' type = 'text/javascript'>alert('Sorry, Session Expired!!'); window.location.href = 'login'</script>");
             }
-            
-            string Curr_Institute = (string)Session["Institute"];
+            Institute i = (Institute)Session["Institute"];
+            string Curr_Institute = (string)i.Name;
             List<Proposal> All_Proposals = new ProposalRepository().GetProposals(Curr_Institute);
             ProposalList p = new ProposalList();
             p.PList = All_Proposals;
             return View(p);
+        }
+
+        public ActionResult MyAccount()
+        {
+            //TempData["UserName2"] = TempData["UserName"];
+            
+            return View();
+        }
+        public ActionResult ChangePassword(string password)
+        {
+            ViewBag.Uname = Session["UserName"];
+            UserRepository _userReposiory = new UserRepository();
+            User u = _userReposiory.Get((string)ViewBag.Uname);
+            u.Pass = password;
+            _userReposiory.UpdateUser(u);
+            ViewBag.Message = "updated";
+            return View("MyAccount");
         }
     }
 }

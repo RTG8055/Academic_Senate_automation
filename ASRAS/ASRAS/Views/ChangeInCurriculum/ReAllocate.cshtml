@@ -1,7 +1,9 @@
 ﻿
 @{
     ViewBag.Title = "Re-allocate from one semster to another";
-    
+    var Ins = (ASRAS.Models.Institute)Session["Institute"];
+    var Institute = Ins.Name;
+    var Ins_id = (Double)Session["Ins_id"];
 }
     <h2>Re-allocate from one semester to another </h2>
     <h3>Fill the full form before submitting Mr. @ViewBag.Uname</h3>
@@ -9,7 +11,7 @@
     <script type="text/javascript">
     $(document).ready(function () {
         $('input[type=radio][name=Subjects]').change(function () {
-            var selectedInstituteID = $('#Institute_DropDownId option:selected').val();
+            var selectedInstituteID = @Ins_id;
             var selectedDepartmentID = $('#Department_DropDownId option:selected').val();
             var selectedCourseID = $('#Course_DropDownId option:selected').val();
             var selectedSemesterID = $('#Semester_DropDownId option:selected').val();
@@ -31,22 +33,22 @@
 
     <p>Institute</p>
     <div id="InstituteContainer">
-        @Html.Action("InstituteView", "DropDown")
+        <h3>@Institute</h3>
     </div>
     <br />
     <p>Department</p>
     <div id="DepartmentContainer">
-        @Html.Action("DepartmentView", "DropDown", new { InstituteID = 123 })
+        @Html.Action("DepartmentView", "DropDown", new { InstituteID =Ins_id })
     </div>
     <br />
     <p>Course</p>
     <div id="CourseContainer">
-        @Html.Action("CourseView", "DropDown", new { InstituteID = 123, DeptID = 1 })
+        @Html.Action("CourseView", "DropDown", new { InstituteID = Ins_id, DeptID = 1 })
     </div>
     <br />
     <p>Semester</p>
     <div id="SemesterContainer">
-        @Html.Action("SemesterView", "DropDown", new { InstituteID = 123, DeptID = 1, CourseID = 1 })
+        @Html.Action("SemesterView", "DropDown", new { InstituteID = Ins_id, DeptID = 1, CourseID = 1 })
     </div>
     <br />
     <p>Subject Type</p>
@@ -58,8 +60,8 @@
     <br />
     <p>Subject</p>
     <div id="SubjectContainer">
-        @Html.Action("SubjectView", "DropDown", new { InstituteId = 123, DeptID = 1, CourseID = 1, SemesterID = 1, Sub_type = 1 })
+        @Html.Action("SubjectView", "DropDown", new { InstituteId = Ins_id, DeptID = 1, CourseID = 1, SemesterID = 1, Sub_type = 1 })
     </div>
 <div id="new semester">
-    @Html.Action("SemesterView", "DropDown", new { InstituteID = 123, DeptID = 1, CourseID = 1 })
+    @Html.Action("SemesterView", "DropDown", new { InstituteID = Ins_id, DeptID = 1, CourseID = 1 })
 </div>
