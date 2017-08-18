@@ -1,25 +1,24 @@
 ﻿
 @{
-    
+    Layout = "~/Views/Shared/_Login.cshtml";
     ViewBag.Title = "Login";
 }
-
 @using (Html.BeginForm("Clicked", "Login"))
 {
+    <div class="inner cover">
+        <div class="container body-content" id="div1">
 
-    <div class="group" >
-        <input type="text" id="username" name="username" required><span class="highlight"></span><span class="bar"></span>
-        <label>Username</label>
-    </div>
-    <div class="group">
-       <input type="password" id="password" name="password" required><span class="highlight"></span><span class="bar"></span>
-       <label>Password</label>
-    </div>
-    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("Clicked", "Login")'">
-        Login
-        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-    </button>
+            <div class="container" style="width: 380px;margin: 4em auto;padding: 3em 2em 2em 2em;background: #fafafa;border: 1px solid #ebebeb;box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;">
+                <form class="form-signin" style="max-width: 330px;padding: 15px;margin: 0 auto;">
+                    <h2 class="form-signin-heading" style="color:black;text-shadow:none;margin-top:-35px;margin-bottom:10px">Please sign in</h2>
+                    <label for="inputUsername" class="sr-only">Username</label>
+                    <input type="text" id="username" class="form-control" placeholder="Username" required style="margin-top:15px;margin-bottom: -1px;border-bottom-right-radius: 0;border-bottom-left-radius: 0;" autofocus >
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Password" required style="margin-bottom: 10px;border-top-left-radius: 0;border-top-right-radius: 0;">
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="location.href='@Url.Action("Clicked", "Login")'" style="margin-top:15px;">Sign in</button>
+                </form>
+            </div>
+        </div>
+     </div> <!-- /container -->
 }
-
-<h2>@ViewBag.Result</h2>
-
