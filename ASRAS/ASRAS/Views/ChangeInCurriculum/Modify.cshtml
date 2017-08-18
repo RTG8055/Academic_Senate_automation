@@ -11,8 +11,7 @@
 
 <h2>Modify Syllabus - Page 1</h2>
 <h3>Fill the full form before submitting Mr. @ViewBag.Uname</h3>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js">
-</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script> 
 
 <script type="text/javascript">
@@ -38,9 +37,6 @@
     });
 </script>
 <script>
-    (function () {
-        var bar = $('.progress-bar');
-        var percent = $('.progress-bar');
         var status = $('#status');
 
         $('form').ajaxForm({
@@ -66,6 +62,62 @@
         });
 
     })();
+    //(function () {
+    //    var bar = $('.progress-bar');
+    //    var percent = $('.progress-bar');
+    //    var status = $('#status');
+
+    //    $('form').ajaxForm({
+    //        beforeSend: function () {
+    //            status.empty();
+    //            var percentVal = '0%';
+    //            bar.width(percentVal)
+    //            percent.html(percentVal);
+    //        },
+    //        uploadProgress: function (event, position, total, percentComplete) {
+    //            var percentVal = percentComplete + '%';
+    //            bar.width(percentVal)
+    //            percent.html(percentVal);
+    //        },
+    //        success: function () {
+    //            var percentVal = '100%';
+    //            bar.width(percentVal)
+    //            percent.html(percentVal);
+    //        },
+    //        complete: function (xhr) {
+    //            status.html(xhr.responseText);
+    //        }
+    //    });
+
+    //})();
+    //(function () {
+    //    var bar = $('.progress-bar');
+    //    var percent = $('.progress-bar');
+    //    var status = $('#status');
+
+    //    $('form').ajaxForm({
+    //        beforeSend: function () {
+    //            status.empty();
+    //            var percentVal = '0%';
+    //            bar.width(percentVal)
+    //            percent.html(percentVal);
+    //        },
+    //        uploadProgress: function (event, position, total, percentComplete) {
+    //            var percentVal = percentComplete + '%';
+    //            bar.width(percentVal)
+    //            percent.html(percentVal);
+    //        },
+    //        success: function () {
+    //            var percentVal = '100%';
+    //            bar.width(percentVal)
+    //            percent.html(percentVal);
+    //        },
+    //        complete: function (xhr) {
+    //            status.html(xhr.responseText);
+    //        }
+    //    });
+
+    //})();
 </script>
 
 @using (Html.BeginForm("Preview", "Preview"))
@@ -146,14 +198,11 @@
         @Html.TextBoxFor(model => model.proposal.References, new { @id = "references" })
     </div>
 
+    //Button to send user-entered form data to the Controller
+    //Note: Since the model of this page is FormModel (as defined at the top of this page) an object of the FormModel type will
+    //be passed as a parameter to the Controller
     <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("Preview", "Preview")'">
         Preview
-    </button>
-    <button type="submit" class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "ChangeInCurriculum")'">
-        Submit
-    </button>
-    <button class="button buttonBlue" onclick="location.href='@Url.Action("insertIntoDatabase", "Upload")'">
-        Submit
     </button>
 }
 
@@ -172,12 +221,3 @@
         <div class="progress-bar progress-bar-success">0%</div>
     </div>
 </div>
-
-@*@using (Html.BeginForm("UploadTestFile", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <span>
-        <input type="file" name="myFile" multiple /> <br>
-        <input type="submit" value="Upload" />
-    </span>
-
-}*@
