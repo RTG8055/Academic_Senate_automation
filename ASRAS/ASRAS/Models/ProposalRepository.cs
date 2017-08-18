@@ -20,9 +20,24 @@ namespace ASRAS.Models
             _database = _client.GetDatabase("AcademicSenate");
             _collection = _database.GetCollection<Proposal>("Proposals");
         }
+        public Double getProposalId(Proposal p)
+        {
+            Double P_id = 1;
+            var all = this._collection.Find(new BsonDocument()).ToListAsync();
 
+            foreach (Proposal tem_p in all.Result)
+            {
+                if(tem_p.P_id>P_id)
+                {
+                    P_id = tem_p.P_id;
+                }
+            }
+            P_id = P_id + 1;
+            return P_id;
+        }
         public void InsertProposal(Proposal p)
         {
+            p.P_id = getProposalId(p);
             this._collection.InsertOneAsync(p);
         }
 

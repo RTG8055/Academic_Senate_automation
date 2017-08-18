@@ -183,7 +183,8 @@ namespace ASRAS.Controllers
             {
                 //ViewBag.Result = "Wrong";
             }*/
-            return RedirectToAction("Index", "Main");
+            return Content("<script language = 'javascript' type = 'text/javascript'>alert('Wrong Username/Password!!'); window.location.href = 'login'</script>");
+            //return View("login");
         }
     }
 }
