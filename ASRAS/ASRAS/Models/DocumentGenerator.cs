@@ -96,14 +96,12 @@ namespace ASRAS.Models
             document.SaveAs(location);
         }
 
-        public static void readDocument()
+        public static string readDocument()
         {
             Application word = new Application();
             Document doc = new Document();
 
             string fileName = "C:/debugging/eval.docx";
-            // Define an object to pass to the API for missing parameters
-            object missing = Type.Missing;
             doc = word.Documents.Open(fileName);
 
             String read = string.Empty;
@@ -111,10 +109,15 @@ namespace ASRAS.Models
             {
                 string temp = doc.Paragraphs[i + 1].Range.Text.Trim();
                 if (temp != string.Empty)
-                    read = read + temp;
+                    read = read + " " + temp;
             }
 
             Debug.WriteLine(read);
+
+            return read;
+
+            doc.Close();
+            word.Quit();
         }
     }
 }
