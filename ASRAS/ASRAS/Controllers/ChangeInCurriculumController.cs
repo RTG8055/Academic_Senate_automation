@@ -71,7 +71,8 @@ namespace ASRAS.Controllers
         //    wordDocument.Close();
         //    wordApplication.Quit();
 
-        //    //DocumentGenerator.readDocument();
+        //    //
+        //enerator.readDocument();
 
         //    return View("Modify");
         //}
