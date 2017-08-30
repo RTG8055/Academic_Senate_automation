@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Word = Microsoft.Office.Interop.Word;
+//using Word = Microsoft.Office.Interop.Word;
 using System.Web.Mvc;
 using System.Web.UI;
 using MongoDB.Driver;
@@ -27,7 +27,7 @@ namespace ASRAS.Controllers
         {
             TempData["UserName4"] = TempData["UserName3"];
             ViewBag.Uname = TempData["UserName3"];
-            TempData["FullSyll"] = DocumentGenerator.readDocument();
+            //TempData["FullSyll"] = DocumentGenerator.readDocument();
             return View("Modify");
         }
 
@@ -52,29 +52,29 @@ namespace ASRAS.Controllers
             return View("RemoveSubject");
         }
 
-        public ActionResult GenerateDocument(string documentAbstract, string documentObjectives,string documentOutcomes, string documentMain, string documentReferences, string location)
-        {
-            Word.Application wordApplication;
-            Word.Document wordDocument;
-            wordApplication = new Word.Application();
-            wordApplication.Visible = false;
-            wordDocument = wordApplication.Documents.Add();
+        //public ActionResult GenerateDocument(string documentAbstract, string documentObjectives,string documentOutcomes, string documentMain, string documentReferences, string location)
+        //{
+        //    Word.Application wordApplication;
+        //    Word.Document wordDocument;
+        //    wordApplication = new Word.Application();
+        //    wordApplication.Visible = false;
+        //    wordDocument = wordApplication.Documents.Add();
 
-            wordDocument = DocumentGenerator.insert(wordDocument, "Abstract", documentAbstract);
-            wordDocument = DocumentGenerator.insert(wordDocument, "Objectives", documentObjectives);
-            wordDocument = DocumentGenerator.insert(wordDocument, "Outcomes", documentOutcomes);
-            wordDocument = DocumentGenerator.insert(wordDocument, "Syllabus", documentMain);
-            wordDocument = DocumentGenerator.insert(wordDocument, "References", documentReferences);
-            //wordDocument = DocumentGenerator.insertBullet(wordApplication, wordDocument);
-            //DocumentGenerator.saveDocument(wordDocument, "C:/debugging/abcdefg.docx");
+        //    wordDocument = DocumentGenerator.insert(wordDocument, "Abstract", documentAbstract);
+        //    wordDocument = DocumentGenerator.insert(wordDocument, "Objectives", documentObjectives);
+        //    wordDocument = DocumentGenerator.insert(wordDocument, "Outcomes", documentOutcomes);
+        //    wordDocument = DocumentGenerator.insert(wordDocument, "Syllabus", documentMain);
+        //    wordDocument = DocumentGenerator.insert(wordDocument, "References", documentReferences);
+        //    //wordDocument = DocumentGenerator.insertBullet(wordApplication, wordDocument);
+        //    //DocumentGenerator.saveDocument(wordDocument, "C:/debugging/abcdefg.docx");
 
-            wordDocument.Close();
-            wordApplication.Quit();
+        //    wordDocument.Close();
+        //    wordApplication.Quit();
 
-            //DocumentGenerator.readDocument();
+        //    //DocumentGenerator.readDocument();
 
-            return View("Modify");
-        }
+        //    return View("Modify");
+        //}
 
         public void insertIntoDatabase(Proposal proposal)
         {
