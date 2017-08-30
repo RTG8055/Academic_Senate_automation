@@ -10,9 +10,17 @@ namespace ASRAS.Controllers
 {
     public class PreviewController : Controller
     {
-        public ActionResult Preview(Proposal proposal)
+        public ActionResult Preview(FormModal formModal)
         {
+            Proposal proposal = formModal.proposal;
             Institute i = (Institute)Session["Institute"];
+            proposal.P_id = new ProposalRepository().getProposalId(proposal);
+            if (proposal.IA != null && proposal.End_sem_exam != null)
+            {
+                proposal.total = proposal.IA + proposal.End_sem_exam;
+            }
+            else
+                proposal.total = null;
             proposal.Institute = i.Name;
             try
             {

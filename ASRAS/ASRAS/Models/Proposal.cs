@@ -31,12 +31,19 @@ namespace ASRAS.Models
         public string Objectives { get; set; }
         public string Outcome { get; set; }
         public string References { get; set; }
+        public string Lectures { get; set; }
+        public string Tutorials { get; set; }
+        public string Practicals { get; set; }
+        public string Credits { get; set; }
         public string Incl_sem { get; set; }
         public string Incl_sub_type { get; set; }
         public string Others_CR_text { get; set; }
         public string Others_CR_file { get; set; }
 
         public string Present_split { get; set; }
+        public string IA { get; set; }
+        public string End_sem_exam { get; set; }
+        public string total { get; set; }
         public string Proposed_split { get; set; }
         public string Present_nomenclature { get; set; }
         public string New_nomenclature { get; set; }
@@ -51,5 +58,6 @@ namespace ASRAS.Models
         public string Adm_capacity { get; set; }
         public string Proposed_curriculum { get; set; }
         public string Proposed_distribution { get; set; }
+        
     }
 }

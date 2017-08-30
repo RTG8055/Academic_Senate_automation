@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using System.Diagnostics;
 
 
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace ASRAS.Controllers
 
         public ActionResult Clicked(string username, string password)
         {
+            Debug.WriteLine("One");
 
 
             //creating a user record
@@ -133,23 +135,35 @@ namespace ASRAS.Controllers
             //-------------------
             string Entered_Uname = username;
             string Entered_Pass = password;
+            Debug.WriteLine("Two");
             if (Entered_Uname == null || Entered_Pass == null)
+            {
                 //return JavaScript(alert("please enter username and password"));
+                Debug.WriteLine("Three");
                 return Content("<script language = 'javascript' type = 'text/javascript'>alert('please enter username and password'); window.location.href = 'login'</script>");
+            }
+            Debug.WriteLine("Four");
             User curr_user = null;
             try
             {
+                Debug.WriteLine("Five");
                 List<User> Hits = _repositoryUser.Filter("{UserName: '" + Entered_Uname + "', Pass: '" + Entered_Pass + "'}");
                 if (Hits == null)
+                {
                     //ViewBag.Result = "Error!!";
+                    Debug.WriteLine("Error");
                     return Content("<script language = 'javascript' type = 'text/javascript'>alert('ERROR!!'); window.location.href = 'login'</script>");
+                }
                 else
                 {
                     foreach (User s in Hits)
                     {
                         if (s.ToJson().ToString() == null)
+                        {
                             //ViewBag.Result = "Invalid Login";
+                            Debug.WriteLine("Invalid");
                             return Content("<script language = 'javascript' type = 'text/javascript'>alert('ERROR!!'); window.location.href = 'login'</script>");
+                        }
                         else
                         {
                             ViewBag.Result = "Welcome " + s.Name.ToString();
@@ -160,9 +174,9 @@ namespace ASRAS.Controllers
                             //Session["Institute"] = s.Institute;
                             InstituteRepository i = new InstituteRepository();
                             Session["Institute"] = i.GetInstitute(s.Institute);
-                            Session["Ins_id"]= i.GetIns_Id(s.Institute);
-                            return this.RedirectToAction("Index", "Main");
-                            
+                            Session["Ins_id"] = i.GetIns_Id(s.Institute);
+                            return RedirectToAction("Index", "Main");
+
                         }
                     }
                 }
@@ -183,7 +197,8 @@ namespace ASRAS.Controllers
             {
                 //ViewBag.Result = "Wrong";
             }*/
-            return RedirectToAction("Index", "Main");
+            return Content("<script language = 'javascript' type = 'text/javascript'>alert('Wrong Username/Password!!'); window.location.href = 'login'</script>");
+            //return View("login");
         }
     }
 }
