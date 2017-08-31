@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using Word = Microsoft.Office.Interop.Word;
+//using Word = Microsoft.Office.Interop.Word;
 using ASRAS.Models;
 
 namespace ASRAS.Controllers
@@ -47,22 +47,22 @@ namespace ASRAS.Controllers
             return View("ChangePromotionCriteria");
         }
 
-        public ActionResult GenerateDocument(string documentPresentEvaluation, string documentProposedEvaluation, string location)
-        {
-            Word.Application wordApplication;
-            Word.Document wordDocument;
-            wordApplication = new Word.Application();
-            wordApplication.Visible = false;
-            wordDocument = wordApplication.Documents.Add();
+        //public ActionResult GenerateDocument(string documentPresentEvaluation, string documentProposedEvaluation, string location)
+        //{
+        //    Word.Application wordApplication;
+        //    Word.Document wordDocument;
+        //    wordApplication = new Word.Application();
+        //    wordApplication.Visible = false;
+        //    wordDocument = wordApplication.Documents.Add();
 
-            wordDocument = DocumentGenerator.insert(wordDocument, "Present Evaluation", documentPresentEvaluation);
-            wordDocument = DocumentGenerator.insert(wordDocument, "Proposed Evaluation", documentProposedEvaluation);
-            DocumentGenerator.saveDocument(wordDocument, location);
+        //    wordDocument = DocumentGenerator.insert(wordDocument, "Present Evaluation", documentPresentEvaluation);
+        //    wordDocument = DocumentGenerator.insert(wordDocument, "Proposed Evaluation", documentProposedEvaluation);
+        //    DocumentGenerator.saveDocument(wordDocument, location);
 
-            wordDocument.Close();
-            wordApplication.Quit();
+        //    wordDocument.Close();
+        //    wordApplication.Quit();
 
-            return View("ChangeTimeScheme");
-        }
+        //    return View("ChangeTimeScheme");
+        //}
     }
 }
